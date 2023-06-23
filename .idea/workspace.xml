@@ -4,10 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e841b94-0b94-46ab-8e0f-834a2b1cbed8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/model/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gerenciamento-de-eventos-academicos.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gerenciamento-de-eventos-academicos.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="5e841b94-0b94-46ab-8e0f-834a2b1cbed8" name="Changes" comment="project structure update">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/model/Atividade.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/model/Certificado.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/model/Endereco.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/model/Evento.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/model/Local.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/model/Organizador.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/model/Palestrante.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/model/Participante.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/model/Usuario.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,7 +53,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/jaoal/OneDrive/Área de Trabalho/Study/Coding/Java 2023/gerenciamento-eventos-academicos/src",
+    "last_opened_file_path": "C:/Users/jaoal/OneDrive/Área de Trabalho/Study/Coding/Java 2023/gerenciamento-eventos-academicos/src/main/java/com/gerenciadorDeEventosAcademicos/model",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2"
@@ -68,6 +74,14 @@
       <option name="presentableId" value="Default" />
       <updated>1687302000594</updated>
     </task>
+    <task id="LOCAL-00001" summary="project structure update">
+      <created>1687309606583</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1687309606583</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -92,5 +106,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="project structure update" />
+    <option name="LAST_COMMIT_MESSAGE" value="project structure update" />
   </component>
 </project>
