@@ -1,4 +1,4 @@
-package main.java.com.gerenciadorDeEventosAcademicos.model;
+package com.gerenciadorDeEventosAcademicos.model;
 
 import java.util.ArrayList;
 
@@ -14,9 +14,7 @@ public class Atividade {
     private String horaInicio;
     private String horaFim;
     private ArrayList<Participante> participantesDaAtividade = new ArrayList<Participante>();
-    public Atividade(int id) {
-        this.id = id;
-    }
+
     public Atividade(int id, String nome, String descricao, Local local, Palestrante palestrante, String dataInicio, String dataFim, String horaInicio, String horaFim, ArrayList<Participante> participantesDaAtividade) {
         this.id = id;
         this.nome = nome;
@@ -30,16 +28,17 @@ public class Atividade {
         this.participantesDaAtividade = participantesDaAtividade;
     }
 
-    public Atividade(int id, String nome, String descricao, Local local, String dataInicio, String dataFim, String horaInicio, String horaFim, ArrayList<Participante> participantesDaAtividade) {
-        this.id = id;
-        this.nome = nome;
-        this.descricao = descricao;
-        this.local = local;
-        this.dataInicio = dataInicio;
-        this.dataFim = dataFim;
-        this.horaInicio = horaInicio;
-        this.horaFim = horaFim;
-        this.participantesDaAtividade = participantesDaAtividade;
+    @Override
+    public String toString() {
+        return "Nome: ((" + nome +
+                "))\n    Descricao: " + descricao +
+                "\n    Local: " + local +
+                "\n    Palestrante: " + palestrante +
+                "\n    Data de Inicio: " + dataInicio +
+                "\n    Hora de inicio: " + horaInicio +
+                "\n    Hora de fim: " + horaFim +
+                "\n    Participantes da atividade: " + participantesDaAtividade +
+                "}";
     }
 
     public int getId() {

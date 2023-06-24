@@ -1,4 +1,5 @@
-package main.java.com.gerenciadorDeEventosAcademicos.model;
+package com.gerenciadorDeEventosAcademicos.model;
+
 import java.util.ArrayList;
 
 public class Palestrante extends Usuario {
@@ -8,6 +9,13 @@ public class Palestrante extends Usuario {
     public Palestrante(int id, String nome, String email, String senha, ArrayList<Atividade> atividades) {
         super(id, nome, email, senha);
         this.atividades = atividades;
+    }
+
+    @Override
+    public String toString() {
+        return "{" + super.toString() +
+                ", atividades=" + atividades +
+                '}';
     }
 
     public void inscreverseAtividade(Atividade atividade){}

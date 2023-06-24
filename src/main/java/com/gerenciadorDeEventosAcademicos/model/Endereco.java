@@ -1,4 +1,4 @@
-package main.java.com.gerenciadorDeEventosAcademicos.model;
+package com.gerenciadorDeEventosAcademicos.model;
 
 public class Endereco {
 
@@ -6,6 +6,13 @@ public class Endereco {
     private String numero;
     private String cidade;
     private String referencia;
+
+    public Endereco(String rua, String numero, String cidade, String referencia) {
+        this.rua = rua;
+        this.numero = numero;
+        this.cidade = cidade;
+        this.referencia = referencia;
+    }
 
     public String toString(){
 

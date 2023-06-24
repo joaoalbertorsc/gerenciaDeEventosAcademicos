@@ -1,4 +1,4 @@
-package main.java.com.gerenciadorDeEventosAcademicos.model;
+package com.gerenciadorDeEventosAcademicos.model;
 
 public abstract class Usuario{
 
@@ -12,6 +12,12 @@ public abstract class Usuario{
         this.nome = nome;
         this.email = email;
         this.senha = senha;
+    }
+
+    @Override
+    public String toString() {
+        return "Nome: '" + nome +
+                ", Email: '" + email;
     }
 
     public void login(){}

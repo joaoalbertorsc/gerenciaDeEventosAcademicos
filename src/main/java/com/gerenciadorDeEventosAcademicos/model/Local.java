@@ -1,4 +1,4 @@
-package main.java.com.gerenciadorDeEventosAcademicos.model;
+package com.gerenciadorDeEventosAcademicos.model;
 
 public class Local {
 
@@ -6,6 +6,21 @@ public class Local {
     private String bloco;
     private int capacidade;
     private String referencia;
+
+    public Local(String nome, String bloco, int capacidade, String referencia) {
+        this.nome = nome;
+        this.bloco = bloco;
+        this.capacidade = capacidade;
+        this.referencia = referencia;
+    }
+
+    @Override
+    public String toString() {
+        return "Nome: '" + nome + '\'' +
+                ", Bloco: '" + bloco + '\'' +
+                ", Capacidade: " + capacidade +
+                ", Referencia: '" + referencia + '\'';
+    }
 
     public String getNome() {
         return nome;

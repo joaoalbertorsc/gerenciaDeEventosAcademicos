@@ -1,46 +1,50 @@
-package main.java.com.gerenciadorDeEventosAcademicos.model;
+package com.gerenciadorDeEventosAcademicos.model;
 
 public class Certificado {
-    private String atividade;
-    private String participante;
-    private boolean emitido;
+    private Participante participante;
+    private Atividade atividade;
+    private Evento evento;
 
-    public Certificado(String atividade, String participante) {
-        this.atividade = atividade;
+    public Certificado(Participante participante, Atividade atividade, Evento evento) {
         this.participante = participante;
-        this.emitido = false;
-    }
-
-    public String getAtividade() {
-        return atividade;
-    }
-
-    public void setAtividade(String atividade) {
         this.atividade = atividade;
+        this.evento = evento;
     }
 
-    public String getParticipante() {
+    public Certificado emitirCertificado(Certificado certificado){
+        return certificado;
+    }
+
+    public Participante getParticipante() {
         return participante;
     }
 
-    public void setParticipante(String participante) {
+    public void setParticipante(Participante participante) {
         this.participante = participante;
     }
 
-    public boolean isEmitido() {
-        return emitido;
+    public Atividade getAtividade() {
+        return atividade;
     }
 
-    public void emitirCertificado() {
-        this.emitido = true;
+    public void setAtividade(Atividade atividade) {
+        this.atividade = atividade;
+    }
+
+    public Evento getEvento() {
+        return evento;
+    }
+
+    public void setEvento(Evento evento) {
+        this.evento = evento;
     }
 
     @Override
     public String toString() {
         return "Certificado{" +
-                "atividade='" + atividade + '\'' +
-                ", participante='" + participante + '\'' +
-                ", emitido=" + emitido +
+                "Evento: " + evento + '\n' +
+                "Atividade= " + atividade + '\'' +
+                "Participante='" + participante + '\'' +
                 '}';
     }
 }

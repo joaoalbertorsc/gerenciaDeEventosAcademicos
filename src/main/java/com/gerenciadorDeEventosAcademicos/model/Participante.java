@@ -1,4 +1,5 @@
-package main.java.com.gerenciadorDeEventosAcademicos.model;
+package com.gerenciadorDeEventosAcademicos.model;
+
 
 import java.util.ArrayList;
 

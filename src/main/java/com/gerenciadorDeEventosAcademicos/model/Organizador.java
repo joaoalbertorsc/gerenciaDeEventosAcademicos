@@ -1,4 +1,4 @@
-package main.java.com.gerenciadorDeEventosAcademicos.model;
+package com.gerenciadorDeEventosAcademicos.model;
 
 import java.util.ArrayList;
 
@@ -15,14 +15,6 @@ public class Organizador extends Usuario{
                 "\nEmail: " + getEmail();
     }
 
-    public void criarEvento(int id){
-        Evento evento = new Evento(id);
-        eventos.add(evento);
-    }
-    public void criarEvento(int id, String nome, String descricao, Endereco endereco, Organizador organizador, String dataInicio, String dataFim, String horaInicio){
-        Evento evento = new Evento(id, nome,  descricao, endereco, organizador, dataInicio, dataFim, horaInicio);
-        eventos.add(evento);
-    }
     public void criarEvento(int id, String nome, String descricao, Endereco endereco, Organizador organizador, String dataInicio, String dataFim, String horaInicio, ArrayList<Atividade> atividadesDoEvento, ArrayList<Participante> participantesDoEvento, ArrayList<Palestrante> palestrantesDoEvento){
         Evento evento = new Evento(id, nome,  descricao, endereco, organizador, dataInicio, dataFim, horaInicio, atividadesDoEvento, participantesDoEvento, palestrantesDoEvento);
         eventos.add(evento);
@@ -32,8 +24,8 @@ public class Organizador extends Usuario{
 
     public void excluirEvento(int id){}
 
-    public void criarAtividade(int id){
-        Atividade atividade = new Atividade(id);
+    public void criarAtividade(int id, String atividade01, String primeira_atividade, Local local01, Palestrante palestrante01, String s, String s1, String s2, String s3, ArrayList<Participante> participantes){
+        Atividade atividade = new Atividade(id, atividade01, primeira_atividade,local01, palestrante01, s, s1, s2, s3, participantes);
         atividades.add(atividade);
     }
 

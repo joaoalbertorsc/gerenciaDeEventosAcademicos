@@ -1,4 +1,4 @@
-package main.java.com.gerenciadorDeEventosAcademicos.model;
+package com.gerenciadorDeEventosAcademicos.model;
 
 import java.util.ArrayList;
 
@@ -58,7 +58,7 @@ public class Evento {
                 "\nData de inicio: " + dataInicio +
                 "\nData de finalizacao: " + dataFim +
                 "\n-------------------------------------------" +
-                "\nAtividades do evento: " + atividadesDoEvento +
+                "\nAtividades do evento:\n\n" + atividadesDoEvento +
                 "\n-------------------------------------------";
 
     }
@@ -145,5 +145,9 @@ public class Evento {
 
     public void setPalestrantesDoEvento(ArrayList<Palestrante> palestrantesDoEvento) {
         this.palestrantesDoEvento = palestrantesDoEvento;
+    }
+
+    public void addAtividade(Atividade atividade) {
+        atividadesDoEvento.add(atividade);
     }
 }
