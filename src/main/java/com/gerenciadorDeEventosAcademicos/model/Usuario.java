@@ -2,12 +2,12 @@ package com.gerenciadorDeEventosAcademicos.model;
 
 public abstract class Usuario{
 
-    private int id;
+    private String id;
     private String nome;
     private String email;
     private String senha;
 
-    public Usuario(int id, String nome, String email, String senha) {
+    public Usuario(String id, String nome, String email, String senha) {
         this.id = id;
         this.nome = nome;
         this.email = email;
@@ -24,7 +24,7 @@ public abstract class Usuario{
     public void verInfoEvento(Evento evento){}
     public void verInfoAtividade(Atividade atividade){}
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
