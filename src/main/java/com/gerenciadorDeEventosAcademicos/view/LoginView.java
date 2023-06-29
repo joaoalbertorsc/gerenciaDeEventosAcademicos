@@ -1,21 +1,20 @@
 package com.gerenciadorDeEventosAcademicos.view;
 
-import com.gerenciadorDeEventosAcademicos.controller.LoginTelaController;
+import com.gerenciadorDeEventosAcademicos.controller.LoginController;
 import com.gerenciadorDeEventosAcademicos.model.*;
-import com.sun.org.apache.xpath.internal.operations.Or;
 
 import java.util.Scanner;
 
-public class LoginTelaView implements Observer{
+public class LoginView implements Observer{
     private Model model;
-    private LoginTelaController controller;
+    private LoginController controller;
     private String login;
     private String senha;
     private Usuario usuario;
 
-    public void initLoginTelaView(Model model){
+    public void initLoginView(Model model){
         this.model = model;
-        controller = new LoginTelaController();
+        controller = new LoginController();
         controller.initLoginTelaController(model, this);
         model.attachObserver(this);
         logarUsuario();
@@ -44,6 +43,14 @@ public class LoginTelaView implements Observer{
     }
 
     public void update(){
+
+    }
+    public void handleEvent(String event){
+
+        switch (event){
+            case "OK":
+
+        }
 
     }
 

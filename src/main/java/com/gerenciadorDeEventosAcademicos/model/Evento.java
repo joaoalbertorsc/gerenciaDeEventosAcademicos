@@ -3,7 +3,6 @@ package com.gerenciadorDeEventosAcademicos.model;
 import java.util.ArrayList;
 
 public class Evento {
-
     private int id;
     private String nome;
     private String descricao;
@@ -12,40 +11,9 @@ public class Evento {
     private String dataInicio;
     private String dataFim;
     private String horaInicio;
-
     private ArrayList<Atividade> atividadesDoEvento = new ArrayList<Atividade>();
     private ArrayList<Participante> participantesDoEvento = new ArrayList<Participante>();
     private ArrayList<Palestrante> palestrantesDoEvento = new ArrayList<Palestrante>();
-
-    public Evento(int id) {
-        this.id = id;
-    }
-
-    public Evento(int id, String nome, String descricao, Endereco endereco, Organizador organizador, String dataInicio, String dataFim, String horaInicio) {
-        this.id = id;
-        this.nome = nome;
-        this.descricao = descricao;
-        this.endereco = endereco;
-        this.organizador = organizador;
-        this.dataInicio = dataInicio;
-        this.dataFim = dataFim;
-        this.horaInicio = horaInicio;
-    }
-
-    public Evento(int id, String nome, String descricao, Endereco endereco, Organizador organizador, String dataInicio, String dataFim, String horaInicio, ArrayList<Atividade> atividadesDoEvento, ArrayList<Participante> participantesDoEvento, ArrayList<Palestrante> palestrantesDoEvento) {
-        this.id = id;
-        this.nome = nome;
-        this.descricao = descricao;
-        this.endereco = endereco;
-        this.organizador = organizador;
-        this.dataInicio = dataInicio;
-        this.dataFim = dataFim;
-        this.horaInicio = horaInicio;
-        this.atividadesDoEvento = atividadesDoEvento;
-        this.participantesDoEvento = participantesDoEvento;
-        this.palestrantesDoEvento = palestrantesDoEvento;
-    }
-
     public String toString(){
         return "-------------------------------------------" +
                 "\nEvento: " + nome +
@@ -57,11 +25,17 @@ public class Evento {
                 "\n-------------------------------------------" +
                 "\nData de inicio: " + dataInicio +
                 "\nData de finalizacao: " + dataFim +
-                "\n-------------------------------------------" +
-                "\nAtividades do evento:\n\n" + atividadesDoEvento +
                 "\n-------------------------------------------";
-
     }
+
+    public void setId(int id){
+        if (id >= 0 && id <= 999999){
+            this.id = id;
+        } else {
+            System.out.println("O id informado não esta entre o intervalo de 0 a 999999 \n Tente novamente");
+        }
+    }
+
 
     public int getId() {
         return id;
@@ -104,7 +78,11 @@ public class Evento {
     }
 
     public void setDataInicio(String dataInicio) {
-        this.dataInicio = dataInicio;
+        if (dataInicio.matches("\\d{1,2}/\\d{1,2}/\\d{4}")) {
+            this.dataInicio = dataInicio;
+        } else {
+            System.out.println("O formato da data de inicio informada esta incoreto.\n Tente novamente passando a data no formato xx/xx/xxxx");
+        }
     }
 
     public String getDataFim() {
@@ -112,15 +90,25 @@ public class Evento {
     }
 
     public void setDataFim(String dataFim) {
-        this.dataFim = dataFim;
+        if (dataFim.matches("\\d{1,2}/\\d{1,2}/\\d{4}")) {
+            this.dataFim = dataFim;
+        } else {
+            System.out.println("O formato da data do fim informada esta incoreto.\n Tente novamente passando a data no formato xx/xx/xxxx");
+        }
     }
+
 
     public String getHoraInicio() {
         return horaInicio;
     }
 
     public void setHoraInicio(String horaInicio) {
-        this.horaInicio = horaInicio;
+        if (horaInicio.matches("\\d{1,2}:\\d{2}")) {
+            this.horaInicio = horaInicio;
+        }
+        else {
+            System.out.println("O formato da hora de inicio informada esta incoreto.\n Tente novamente passando a hora no formato xx:xx");
+        }
     }
 
     public ArrayList<Atividade> getAtividadesDoEvento() {

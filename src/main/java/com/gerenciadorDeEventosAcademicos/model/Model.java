@@ -10,6 +10,7 @@ public class Model {
 
     private HashMap<String,Usuario> usuarios = new HashMap<String, Usuario>();
     private Usuario usuarioAutenticado;
+    private ArrayList<Evento> totalEventos;
     private ArrayList<Observer> observers = new ArrayList<Observer>();
 
     public void attachObserver(Observer observer) {
@@ -70,4 +71,11 @@ public class Model {
         }
     }
 
+    public ArrayList<Evento> getTotalEventos() {
+        return totalEventos;
+    }
+
+    public void setTotalEventos(ArrayList<Evento> totalEventos) {
+        this.totalEventos = totalEventos;
+    }
 }

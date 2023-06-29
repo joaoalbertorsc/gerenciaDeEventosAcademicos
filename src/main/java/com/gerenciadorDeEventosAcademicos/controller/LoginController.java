@@ -1,27 +1,16 @@
 package com.gerenciadorDeEventosAcademicos.controller;
 
 import com.gerenciadorDeEventosAcademicos.model.*;
-import com.gerenciadorDeEventosAcademicos.view.LoginTelaView;
+import com.gerenciadorDeEventosAcademicos.view.LoginView;
 import com.gerenciadorDeEventosAcademicos.view.Observer;
+import com.gerenciadorDeEventosAcademicos.view.PaginaEventosView;
 
-public class LoginTelaController implements Observer {
+public class LoginController implements Observer {
 
     private Model model;
-    private LoginTelaView view;
+    private LoginView view;
 
-    public void tipoUsuario(int tipoUsuario){
-        switch (tipoUsuario){
-            case 1:
-                this.usuario = ((Organizador) usuario);
-            case 2:
-                this.usuario = ((Palestrante) usuario);
-            case 3:
-                this.usuario = ((Participante) usuario);
-            default:
-                ;
-        }
-    }
-    public void initLoginTelaController(Model model, LoginTelaView view) {
+    public void initLoginTelaController(Model model, LoginView view) {
         this.model = model;
         this.view = view;
         model.attachObserver(this);
@@ -37,7 +26,8 @@ public class LoginTelaController implements Observer {
                     view.exibeMSG("SUCESSO: Usuario autenticado!");
                 }
                 model.detachObserver(this);
-                break;
+                PaginaEventosView pagina = new PaginaEventosView();
+                pagina.initPaginaEventosView(Model model);
         }
     }
 

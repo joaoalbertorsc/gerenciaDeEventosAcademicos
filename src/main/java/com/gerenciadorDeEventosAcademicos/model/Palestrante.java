@@ -6,11 +6,6 @@ public class Palestrante extends Usuario {
 
     private ArrayList<Atividade> atividades = new ArrayList<Atividade>();
 
-    public Palestrante(int id, String nome, String email, String senha, ArrayList<Atividade> atividades) {
-        super(id, nome, email, senha);
-        this.atividades = atividades;
-    }
-
     @Override
     public String toString() {
         return "{" + super.toString() +

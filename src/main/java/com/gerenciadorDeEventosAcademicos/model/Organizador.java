@@ -6,17 +6,13 @@ public class Organizador extends Usuario{
     private ArrayList<Evento> eventos = new ArrayList<Evento>();
     private ArrayList<Atividade> atividades = new ArrayList<Atividade>();
 
-    public Organizador(int id, String nome, String email, String senha) {
-        super(id, nome, email, senha);
-    }
-
     public String toString(){
         return "Organizador: " + getNome() +
                 "\nEmail: " + getEmail();
     }
 
-    public void criarEvento(int id, String nome, String descricao, Endereco endereco, Organizador organizador, String dataInicio, String dataFim, String horaInicio, ArrayList<Atividade> atividadesDoEvento, ArrayList<Participante> participantesDoEvento, ArrayList<Palestrante> palestrantesDoEvento){
-        Evento evento = new Evento(id, nome,  descricao, endereco, organizador, dataInicio, dataFim, horaInicio, atividadesDoEvento, participantesDoEvento, palestrantesDoEvento);
+    public void criarEvento(){
+        Evento evento = new Evento();
         eventos.add(evento);
     }
 

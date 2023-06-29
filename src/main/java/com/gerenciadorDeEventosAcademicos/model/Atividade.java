@@ -15,19 +15,6 @@ public class Atividade {
     private String horaFim;
     private ArrayList<Participante> participantesDaAtividade = new ArrayList<Participante>();
 
-    public Atividade(int id, String nome, String descricao, Local local, Palestrante palestrante, String dataInicio, String dataFim, String horaInicio, String horaFim, ArrayList<Participante> participantesDaAtividade) {
-        this.id = id;
-        this.nome = nome;
-        this.descricao = descricao;
-        this.local = local;
-        this.palestrante = palestrante;
-        this.dataInicio = dataInicio;
-        this.dataFim = dataFim;
-        this.horaInicio = horaInicio;
-        this.horaFim = horaFim;
-        this.participantesDaAtividade = participantesDaAtividade;
-    }
-
     @Override
     public String toString() {
         return "Nome: ((" + nome +
@@ -39,6 +26,10 @@ public class Atividade {
                 "\n    Hora de fim: " + horaFim +
                 "\n    Participantes da atividade: " + participantesDaAtividade +
                 "}";
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getId() {
@@ -74,7 +65,11 @@ public class Atividade {
     }
 
     public void setPalestrante(Palestrante palestrante) {
-        this.palestrante = palestrante;
+        if (palestrante == null){
+            System.out.println("O palestrante informado não existe \n Tente novamente");
+        } else {
+            this.palestrante = palestrante;
+        }
     }
 
     public String getDataInicio() {
@@ -82,7 +77,11 @@ public class Atividade {
     }
 
     public void setDataInicio(String dataInicio) {
-        this.dataInicio = dataInicio;
+        if (dataInicio.matches("\\d{1,2}/\\d{1,2}/\\d{4}")) {
+            this.dataInicio = dataInicio;
+        } else {
+            System.out.println("O formato da data de inicio informada esta incoreto.\n Tente novamente passando a data no formato xx/xx/xxxx");
+        }
     }
 
     public String getDataFim() {
@@ -90,7 +89,11 @@ public class Atividade {
     }
 
     public void setDataFim(String dataFim) {
-        this.dataFim = dataFim;
+        if (dataFim.matches("\\d{1,2}/\\d{1,2}/\\d{4}")) {
+            this.dataFim = dataFim;
+        } else{
+            System.out.println("O formato da data de fim informada esta incoreto.\n Tente novamente passando a data no formato xx/xx/xxxx");
+        }
     }
 
     public String getHoraInicio() {
@@ -98,7 +101,12 @@ public class Atividade {
     }
 
     public void setHoraInicio(String horaInicio) {
-        this.horaInicio = horaInicio;
+        if (horaInicio.matches("\\d{1,2}:\\d{2}")) {
+            this.horaInicio = horaInicio;
+        }
+        else {
+            System.out.println("O formato da hora de inicio informada esta incoreto.\n Tente novamente passando a hora no formato xx:xx");
+        }
     }
 
     public String getHoraFim() {
@@ -106,7 +114,12 @@ public class Atividade {
     }
 
     public void setHoraFim(String horaFim) {
-        this.horaFim = horaFim;
+        if (horaInicio.matches("\\d{1,2}:\\d{2}")) {
+            this.horaInicio = horaInicio;
+        }
+        else {
+            System.out.println("O formato da hora do fim informado esta incoreto.\n Tente novamente passando a hora no formato xx:xx");
+        }
     }
 
     public ArrayList<Participante> getParticipantesDaAtividade() {
