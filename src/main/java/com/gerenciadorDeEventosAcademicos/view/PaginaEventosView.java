@@ -11,9 +11,9 @@ public class PaginaEventosView implements Observer{
 
     private Model model;
     private PaginaEventosController controller;
-    private int totalEventosCadastrados;
     private ArrayList<Evento> listaEventosCadastrados;
     private int numeroEventoEscolhido;
+    private int escolhaUsuario;
 
     public void initPaginaEventosView(Model model) {
         this.model = model;
@@ -28,28 +28,15 @@ public class PaginaEventosView implements Observer{
         System.out.println("======================");
         System.out.println("PAGINA DE EVENTOS");
         System.out.println("======================");
-        System.out.println("Total eventos cadastrados: " + totalEventosCadastrados);
-        eventosDaLista();
         System.out.println();
-        System.out.print("Digite o numero do evento: ");
+        controller.eventosDisponiveis();
+        System.out.print("[1] - Escoilher evento" +
+                "\n[2] - Voltar" +
+                "\n[3] - Sair");
+        escolhaUsuario = scanner.nextInt();
+        controller.escolhaUsuario(escolhaUsuario);
         numeroEventoEscolhido = scanner.nextInt();
-        controller.handleEvent("OK");
         model.detachObserver(this);
-    }
-
-    public void eventosDaLista(){
-        System.out.println("Eventos disponiveis: ");
-        for (int i = 0; i < listaEventosCadastrados.size(); i++) {
-            System.out.println(i + " - " + listaEventosCadastrados.get(i).getNome());
-        }
-    }
-
-    public int getTotalEventosCadastrados() {
-        return totalEventosCadastrados;
-    }
-
-    public void setTotalEventosCadastrados(int totalEventosCadastrados) {
-        this.totalEventosCadastrados = totalEventosCadastrados;
     }
 
     public ArrayList<Evento> getListaEventosCadastrados() {
@@ -68,8 +55,14 @@ public class PaginaEventosView implements Observer{
         this.numeroEventoEscolhido = numeroEventoEscolhido;
     }
 
-    //    tipoUsuario(int tipoUsuario) {
-//    }
+    public int getEscolhaUsuario() {
+        return escolhaUsuario;
+    }
+
+    public void setEscolhaUsuario(int escolhaUsuario) {
+        this.escolhaUsuario = escolhaUsuario;
+    }
+
     @Override
     public void update() {
 

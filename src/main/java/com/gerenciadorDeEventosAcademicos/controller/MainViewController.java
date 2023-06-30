@@ -28,16 +28,16 @@ public class MainViewController implements Observer {
     public void handleEvent(String event) {
         switch (event) {
             case "1" : if (model.getUsuarioAutenticado() == null) {
-                LoginView loginView = new LoginView(); // ir para tela de login
+                LoginView loginView = new LoginView();
                 loginView.initLoginView(model);
             } else {
                 model.deslogarUsuario();
             }
                 break;
-            case "2" : CadastroView view2 = new CadastroView(); // ir para tela de cadastro de usuário
+            case "2" : CadastroView view2 = new CadastroView();
                 view2.initNewUserView(model);
                 break;
-            case "3" : view.finalizarSistema(); break;	// finalizar sistema
+            case "3" : view.finalizarSistema(); break;
         }
     }
 }

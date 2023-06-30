@@ -23,6 +23,7 @@ public class CadastroController implements Observer {
             case "OK" :
                 tipoUsuario(view.getTipoUsuario());
                 usuario.setId(view.getId());
+                usuario.setEmail(view.getEmail());
                 usuario.setNome(view.getNome());
                 usuario.setSenha(view.getSenha());
                 model.setUsuario(usuario);

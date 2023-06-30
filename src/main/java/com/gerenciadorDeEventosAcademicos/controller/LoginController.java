@@ -27,7 +27,7 @@ public class LoginController implements Observer {
                 }
                 model.detachObserver(this);
                 PaginaEventosView pagina = new PaginaEventosView();
-                pagina.initPaginaEventosView(Model model);
+                pagina.initPaginaEventosView(model);
         }
     }
 

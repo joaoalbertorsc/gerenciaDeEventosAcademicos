@@ -17,6 +17,7 @@ public class CadastroView implements Observer{
     private String nome;
     private String id;
     private String senha;
+    private String email;
 
     public void initNewUserView(Model model) {
         this.model = model;
@@ -27,23 +28,26 @@ public class CadastroView implements Observer{
     }
 
     public void cadastrarUsuario() {
-        Scanner sc = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         System.out.println("======================");
         System.out.println("CADASTRAR USUARIO");
         System.out.println("======================");
-        System.out.println();
-        System.out.println("TIPO DE CONTA: " +
+        System.out.println("Tipos de contas disponiveis: " +
                 "\n[1] Participante;" +
                 "\n[2] Palestrante;" +
                 "\n[3] Organizador;");
-        System.out.print("Digite a conta desejada: ");
-        tipoUsuario = sc.nextInt();
-        System.out.print("Nome: ");
-        nome = sc.nextLine();
-        System.out.print("Login: ");
-        id = sc.nextLine();
-        System.out.print("Senha: ");
-        senha = sc.nextLine();
+        System.out.println();
+        System.out.println("Defina o seu tipo de conta (digite o numero correspondente): ");
+        tipoUsuario = scanner.nextInt();
+        scanner.nextLine();
+        System.out.println("Digite seu nome: ");
+        nome = scanner.nextLine();
+        System.out.println("Defina seu email: ");
+        email = scanner.nextLine();
+        System.out.println("Defina seu ID: ");
+        id = scanner.nextLine();
+        System.out.println("Defina sua senha: ");
+        senha = scanner.nextLine();
         controller.handleEvent("OK");
         model.detachObserver(this);
     }
@@ -102,6 +106,14 @@ public class CadastroView implements Observer{
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Override
