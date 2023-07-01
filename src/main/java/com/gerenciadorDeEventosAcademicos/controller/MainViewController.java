@@ -6,6 +6,8 @@ import com.gerenciadorDeEventosAcademicos.view.LoginView;
 import com.gerenciadorDeEventosAcademicos.view.MainView;
 import com.gerenciadorDeEventosAcademicos.view.Observer;
 
+import java.util.NoSuchElementException;
+
 public class MainViewController implements Observer {
 
     private Model model;	// Guarda o modelo a ser utilizado
@@ -25,7 +27,7 @@ public class MainViewController implements Observer {
     public void update() {
 
     }
-    public void handleEvent(String event) {
+    public void handleEvent(String event) throws NoSuchElementException {
         switch (event) {
             case "1" : if (model.getUsuarioAutenticado() == null) {
                 LoginView loginView = new LoginView();
@@ -38,7 +40,9 @@ public class MainViewController implements Observer {
             case "2" : CadastroView view2 = new CadastroView();
                 view2.initNewUserView(model);
                 break;
-            case "3" : view.finalizarSistema(); break;
+            case "3" :
+                view.finalizarSistema();
+                break;
         }
     }
 }

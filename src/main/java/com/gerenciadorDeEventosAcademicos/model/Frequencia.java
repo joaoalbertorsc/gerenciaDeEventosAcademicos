@@ -9,23 +9,18 @@ public class Frequencia {
     private Atividade atividade;
     private ArrayList<Participante> participantesPresentes;
 
-    public Frequencia(Evento evento, Atividade atividade) {
-        this.evento = evento;
-        this.atividade = atividade;
-    }
-
     public void marcarPresenca() {
         Scanner sc = new Scanner(System.in);
         System.out.println("[1] - Presente" +
                 "[2] - Ausente");
         for (Participante participante: atividade.getParticipantesDaAtividade()) {
-            System.out.println("Participante " + participante.getNome() + "esta presente ?\n");
+            System.out.println("Participante " + participante.getNome() + "esta presente?\n");
             String resposta = sc.nextLine();
             if (resposta.equalsIgnoreCase("1")){
                 participantesPresentes.add(participante);
-                System.out.println("Presenca para o " + participante.getNome());
+                System.out.println(participante.getNome() + " está presente.");
             } else {
-                System.out.println("Falta para o " + participante.getNome());
+                System.out.println(participante.getNome() + " está ausente.");
             }
         }
         sc.close();
@@ -40,7 +35,7 @@ public class Frequencia {
 
     public void gerarCertificados() {
         for (Participante participante: participantesPresentes) {
-            Certificado certificado = new Certificado(participante, atividade, evento);
+            Certificado certificado = new Certificado(participante, atividade);
             certificado.emitirCertificado();
         }
     }

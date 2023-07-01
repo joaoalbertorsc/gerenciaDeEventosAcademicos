@@ -9,16 +9,14 @@ public class Certificado {
     private Atividade atividade;
     private Evento evento;
 
-    public Certificado(Participante participante, Atividade atividade, Evento evento) {
+    public Certificado(Participante participante, Atividade atividade) {
         this.participante = participante;
         this.atividade = atividade;
-        this.evento = evento;
     }
 
     public void emitirCertificado () {
         String conteudo = "Certificamos que " + participante.getNome() + " participou da atividade " + atividade.getNome() + "no evento " + evento.getNome() + " realizada em " + atividade.getDataInicio() + ".";
         String nomeArquivo = participante.getNome() + "-" + atividade.getNome() + ".txt";
-
         try {
             PrintWriter writer = new PrintWriter(new FileWriter(nomeArquivo));
             writer.println(conteudo);
@@ -56,11 +54,9 @@ public class Certificado {
 
     @Override
     public String toString() {
-        return "Certificado{\n" +
-                "Participante:'" + participante + '\n' +
+        return "Participante:'" + participante + '\n' +
                 "Evento: " + evento + '\n' +
-                "Atividade: " + atividade + '\n' +
-                '}';
+                "Atividade: " + atividade + '\n';
     }
 }
 

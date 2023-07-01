@@ -30,7 +30,7 @@ public class PaginaEventosView implements Observer{
         System.out.println("======================");
         System.out.println();
         controller.eventosDisponiveis();
-        System.out.print("[1] - Escoilher evento" +
+        System.out.println("[1] - Escoilher evento" +
                 "\n[2] - Voltar para a página inicial");
         System.out.println("Escolha uma opção: ");
         escolhaUsuario = scanner.nextInt();

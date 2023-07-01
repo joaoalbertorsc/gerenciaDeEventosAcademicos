@@ -1,6 +1,5 @@
 package com.gerenciadorDeEventosAcademicos.model;
 
-import com.gerenciadorDeEventosAcademicos.view.LoginView;
 import com.gerenciadorDeEventosAcademicos.view.MainView;
 import com.gerenciadorDeEventosAcademicos.view.Observer;
 
@@ -9,9 +8,12 @@ import java.util.HashMap;
 
 public class Model {
 
-
+    private Usuario usuario;
     private HashMap<String,Usuario> usuarios = new HashMap<String, Usuario>();
     private Usuario usuarioAutenticado;
+    private ArrayList<Participante> participantesLista = new ArrayList<Participante>();
+    private ArrayList<Palestrante> palestrantesLista = new ArrayList<Palestrante>();
+    private ArrayList<Organizador> organizadoresLista = new ArrayList<Organizador>();
     private ArrayList<Evento> totalEventos;
     private ArrayList<Observer> observers = new ArrayList<Observer>();
 
@@ -47,6 +49,8 @@ public class Model {
 
     public void deslogarUsuario() {
         usuarioAutenticado = null;
+        MainView mainView = new MainView();
+        mainView.initMainView(this);
         notifica();
     }
 
@@ -67,7 +71,7 @@ public class Model {
         return usuarios.size();
     }
 
-    public Usuario getUsuario(String id) {
+    public Usuario getUsuarioSistema(String id) {
         if (id != null) {
             Usuario usuario = usuarios.get(id);
             return usuario;
@@ -75,11 +79,31 @@ public class Model {
         return null;
     }
 
-    public void setUsuario(Usuario usuario) {
+    public void setUsuarioSistema(Usuario usuario) {
         if (usuario != null && usuario.getId() != null) {
             usuarios.put(usuario.getId(), usuario);
             notifica();
         }
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public HashMap<String, Usuario> getUsuarios() {
+        return usuarios;
+    }
+
+    public void setUsuarios(HashMap<String, Usuario> usuarios) {
+        this.usuarios = usuarios;
+    }
+
+    public void setUsuarioAutenticado(Usuario usuarioAutenticado) {
+        this.usuarioAutenticado = usuarioAutenticado;
     }
 
     public ArrayList<Evento> getTotalEventos() {
@@ -88,5 +112,16 @@ public class Model {
 
     public void setTotalEventos(ArrayList<Evento> totalEventos) {
         this.totalEventos = totalEventos;
+    }
+
+    public ArrayList<Participante> getParticipantesLista() {
+        return participantesLista;
+    }
+    public ArrayList<Palestrante> getPalestrantesLista() {
+        return palestrantesLista;
+    }
+
+    public ArrayList<Organizador> getOrganizadoresLista() {
+        return organizadoresLista;
     }
 }

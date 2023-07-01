@@ -1,5 +1,6 @@
 package com.gerenciadorDeEventosAcademicos.controller;
 import com.gerenciadorDeEventosAcademicos.model.Atividade;
+import com.gerenciadorDeEventosAcademicos.model.Evento;
 import com.gerenciadorDeEventosAcademicos.model.Model;
 import com.gerenciadorDeEventosAcademicos.view.AtividadesView;
 import com.gerenciadorDeEventosAcademicos.view.DetalhesEventoView;
@@ -20,10 +21,9 @@ public class DetalhesEventoController implements Observer {
         model.attachObserver(this);
     }
 
-    public void escolhaUsuario(int escolhaUsuario){
+    public void handleEvent(int escolhaUsuario){
 
         switch (escolhaUsuario){
-
             case 1:
                 escolherAtividade();
             case 2:
@@ -33,24 +33,36 @@ public class DetalhesEventoController implements Observer {
         }
     }
 
-    public void escolherAtividade() {
+    public void escolherAtividade() throws NullPointerException{
         Scanner scanner = new Scanner(System.in);
         System.out.println("Digite o numero correspondente a atividade desejada: ");
-        numeroAtividadeEscolhida = scanner.nextInt();
-        atividadeEscolhida = view.getListaAtividadesCadastradas().get(numeroAtividadeEscolhida);
-        AtividadesView view1 = new AtividadesView();
-        view1.initAtividadesView(model, atividadeEscolhida);
+
+        try{
+            numeroAtividadeEscolhida = scanner.nextInt();
+            atividadeEscolhida = view.getListaAtividadesCadastradas().get(numeroAtividadeEscolhida);
+            AtividadesView view1 = new AtividadesView();
+            view1.initAtividadesView(model, atividadeEscolhida);
+        } catch (NullPointerException exception){
+            System.out.println("Nenhuma atividade correspondente.");
+            System.out.println("Tente novamente.");
+            DetalhesEventoView view1 = new DetalhesEventoView();
+            view1.initDetalhesEventoView(model, view.getEventoEscolhido());
+        }
+
 
     }
-    public void atividadesDisponiveis(){
+    public void atividadesDisponiveis() throws NullPointerException{
 
+        int i = 1;
         try {
-            System.out.println("Eventos disponiveis: ");
-            for (int i = 0; i < view.getListaAtividadesCadastradas().size(); i++) {
-                System.out.println(i + " - " + view.getListaAtividadesCadastradas().get(i).getNome());
+            System.out.println("Total atividades disponiveis: " + view.getListaAtividadesCadastradas().size());
+            System.out.println("Lista de atividades:");
+            for (Atividade atividade: view.getListaAtividadesCadastradas()) {
+                System.out.println(i + " /// " + atividade.getNome() + " ID: " + atividade.getId());
+                i++;
             }
         } catch (NullPointerException exception){
-            System.out.println("Nenhuma atividade cadastrada.");
+            System.out.println("Nenhuma atividade cadastrada.....");
         }
 
 

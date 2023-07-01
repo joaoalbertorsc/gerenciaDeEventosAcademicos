@@ -4,13 +4,13 @@ import com.gerenciadorDeEventosAcademicos.model.*;
 import com.gerenciadorDeEventosAcademicos.view.CadastroView;
 import com.gerenciadorDeEventosAcademicos.view.Observer;
 
-import javax.script.SimpleScriptContext;
-
 public class CadastroController implements Observer {
 
     private Model model;
     private CadastroView view;
     private Usuario usuario;
+
+
 
     public void initCadastroController(Model model, CadastroView view) {
         this.model = model;
@@ -26,7 +26,7 @@ public class CadastroController implements Observer {
                 usuario.setEmail(view.getEmail());
                 usuario.setNome(view.getNome());
                 usuario.setSenha(view.getSenha());
-                model.setUsuario(usuario);
+                model.setUsuarioSistema(usuario);
                 model.detachObserver(this);
                 break;
         }
@@ -35,12 +35,21 @@ public class CadastroController implements Observer {
     public void tipoUsuario(int tipoUsuario){
         switch (tipoUsuario){
             case 1:
-                usuario = new Participante();
+                Usuario usuario1 = new Participante();
+                Participante participante = (Participante) usuario1;
+                this.usuario = participante;
+                model.getParticipantesLista().add(participante);
             case 2:
-                usuario = new Palestrante();
-            case 3:
-                usuario = new Organizador();
+                Usuario usuario2 = new Palestrante();
+                Palestrante palestrante = (Palestrante) usuario2;
+                this.usuario = palestrante;
+                model.getPalestrantesLista().add(palestrante);
 
+            case 3:
+                Usuario usuario3 = new Organizador();
+                Organizador organizador = (Organizador) usuario3;
+                this.usuario = organizador;
+                model.getOrganizadoresLista().add(organizador);
         }
     }
 

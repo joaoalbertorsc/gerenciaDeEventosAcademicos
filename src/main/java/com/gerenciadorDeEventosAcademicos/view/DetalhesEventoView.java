@@ -20,9 +20,10 @@ public class DetalhesEventoView implements Observer{
         controller = new DetalhesEventoController();
         controller.initDetalhesEventoController(model, this);
         model.attachObserver(this);
+        detalhesDoEvento();
 
     }
-    public void escolherAtividade(){
+    public void detalhesDoEvento(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("======================================");
         System.out.println("Detalhes do evento " + eventoEscolhido.getNome());
@@ -34,7 +35,7 @@ public class DetalhesEventoView implements Observer{
                 "\n[2] - Voltar a pagina anterior" +
                 "\n[3] - Sair");
         escolhaUsuario = scanner.nextInt();
-        controller.escolhaUsuario(escolhaUsuario);
+        controller.handleEvent(escolhaUsuario);
         model.detachObserver(this);
     }
     public Evento getEventoEscolhido() {

@@ -14,10 +14,11 @@ public class Atividade {
     private String horaInicio;
     private String horaFim;
     private ArrayList<Participante> participantesDaAtividade = new ArrayList<Participante>();
+    private ArrayList<Palestrante> palestrantesDaAtividade = new ArrayList<Palestrante>();
 
     @Override
     public String toString() {
-        return "Nome: ((" + nome + "))" +
+        return "Nome: ***" + nome + "***" +
                 "\n    Descricao: " + descricao +
                 "\n    Local: " + local +
                 "\n    Palestrante: " + palestrante +
@@ -30,6 +31,9 @@ public class Atividade {
 
     public void addParticipante(Participante participante){
         participantesDaAtividade.add(participante);
+    }
+    public void addPalestrante(Palestrante palestrante){
+        palestrantesDaAtividade.add(palestrante);
     }
 
     public void setId(int id) {

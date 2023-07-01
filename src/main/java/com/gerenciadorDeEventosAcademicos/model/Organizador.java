@@ -2,13 +2,21 @@ package com.gerenciadorDeEventosAcademicos.model;
 
 import java.util.ArrayList;
 
-public class Organizador extends Usuario{
+public class Organizador extends Palestrante{
     private ArrayList<Evento> eventos = new ArrayList<Evento>();
     private ArrayList<Atividade> atividadesCadastradas = new ArrayList<Atividade>();
 
     public String toString(){
         return "Organizador: " + getNome() +
                 "\nEmail: " + getEmail();
+    }
+
+    public void realizarFrequencia(Atividade atividade, Frequencia frequencia){
+        frequencia.marcarPresenca();
+    }
+    public void gerarCertificado(Participante participante, Atividade atividade){
+        Certificado certificado = new Certificado(participante, atividade);
+        System.out.println("Certificado \n" + certificado + " Gerado com sucesso!");
     }
 
     public void criarEvento(){
@@ -29,7 +37,9 @@ public class Organizador extends Usuario{
 
     public void excluirAtividade(Atividade atividade){}
 
-    public void atribuirPalestrante(Palestrante palestrante, Atividade atividade){}
+    public void atribuirPalestrante(Palestrante palestrante, Atividade atividade){
+        atividade.addPalestrante(palestrante);
+    }
 
     public void visualizarParticipantes(Evento evento){}
 
