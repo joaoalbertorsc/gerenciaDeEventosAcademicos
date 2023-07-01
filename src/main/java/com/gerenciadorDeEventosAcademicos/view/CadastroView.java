@@ -32,14 +32,15 @@ public class CadastroView implements Observer{
         System.out.println("======================");
         System.out.println("CADASTRAR USUARIO");
         System.out.println("======================");
-        System.out.println("Tipos de contas disponiveis: " +
+        System.out.println("Qual tipo de conta deseja criar? " +
                 "\n[1] Participante;" +
                 "\n[2] Palestrante;" +
                 "\n[3] Organizador;");
         System.out.println();
-        System.out.println("Defina o seu tipo de conta (digite o numero correspondente): ");
+        System.out.println("Digite o numero correspondente: ");
         tipoUsuario = scanner.nextInt();
         scanner.nextLine();
+        System.out.println("Insira os dados para a realização do cadastro: ");
         System.out.println("Digite seu nome: ");
         nome = scanner.nextLine();
         System.out.println("Defina seu email: ");

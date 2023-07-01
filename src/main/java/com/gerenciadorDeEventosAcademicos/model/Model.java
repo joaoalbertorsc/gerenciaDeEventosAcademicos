@@ -1,6 +1,7 @@
 package com.gerenciadorDeEventosAcademicos.model;
 
 import com.gerenciadorDeEventosAcademicos.view.LoginView;
+import com.gerenciadorDeEventosAcademicos.view.MainView;
 import com.gerenciadorDeEventosAcademicos.view.Observer;
 
 import java.util.ArrayList;
@@ -46,14 +47,16 @@ public class Model {
 
     public void deslogarUsuario() {
         usuarioAutenticado = null;
-        LoginView view = new LoginView();
-        view.initLoginView(this);
         notifica();
     }
 
-    public void voltar(){
-        LoginView loginView = new LoginView();
-        loginView.initLoginView(this);
+    public void sair(){
+
+    }
+
+    public void voltarPaginaInicial(){
+        MainView mainView = new MainView();
+        mainView.initMainView(this);
     }
 
     public Usuario getUsuarioAutenticado() {

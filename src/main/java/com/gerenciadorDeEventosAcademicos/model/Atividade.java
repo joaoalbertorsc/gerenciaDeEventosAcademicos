@@ -17,8 +17,8 @@ public class Atividade {
 
     @Override
     public String toString() {
-        return "Nome: ((" + nome +
-                "))\n    Descricao: " + descricao +
+        return "Nome: ((" + nome + "))" +
+                "\n    Descricao: " + descricao +
                 "\n    Local: " + local +
                 "\n    Palestrante: " + palestrante +
                 "\n    Data de Inicio: " + dataInicio +
@@ -26,6 +26,10 @@ public class Atividade {
                 "\n    Hora de fim: " + horaFim +
                 "\n    Participantes da atividade: " + participantesDaAtividade +
                 "}";
+    }
+
+    public void addParticipante(Participante participante){
+        participantesDaAtividade.add(participante);
     }
 
     public void setId(int id) {

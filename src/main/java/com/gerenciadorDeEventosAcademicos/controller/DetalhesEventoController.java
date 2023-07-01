@@ -27,7 +27,7 @@ public class DetalhesEventoController implements Observer {
             case 1:
                 escolherAtividade();
             case 2:
-                model.voltar();
+                model.voltarPaginaInicial();
             case 3:
                 model.deslogarUsuario();
         }

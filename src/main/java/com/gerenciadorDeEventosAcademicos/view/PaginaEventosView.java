@@ -20,10 +20,10 @@ public class PaginaEventosView implements Observer{
         controller = new PaginaEventosController();
         controller.initPaginaEventosController(model, this);
         model.attachObserver(this);
-        escolherEvento();
+        paginaEventos();
     }
 
-    private void escolherEvento() {
+    private void paginaEventos() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("======================");
         System.out.println("PAGINA DE EVENTOS");
@@ -31,10 +31,10 @@ public class PaginaEventosView implements Observer{
         System.out.println();
         controller.eventosDisponiveis();
         System.out.print("[1] - Escoilher evento" +
-                "\n[2] - Voltar" +
-                "\n[3] - Sair");
+                "\n[2] - Voltar para a página inicial");
+        System.out.println("Escolha uma opção: ");
         escolhaUsuario = scanner.nextInt();
-        controller.escolhaUsuario(escolhaUsuario);
+        controller.handleEvent(escolhaUsuario);
         numeroEventoEscolhido = scanner.nextInt();
         model.detachObserver(this);
     }

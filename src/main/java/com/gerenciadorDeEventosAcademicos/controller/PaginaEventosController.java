@@ -23,18 +23,17 @@ public class PaginaEventosController implements Observer {
     }
 
     public void eventosDisponiveis() throws NullPointerException{
-
         try {
-            System.out.println("Eventos disponiveis: ");
-            for (int i = 0; i < view.getListaEventosCadastrados().size(); i++) {
-                System.out.println(i + " - " + view.getListaEventosCadastrados().get(i).getNome());
+            System.out.println("Total eventos disponiveis: " + view.getListaEventosCadastrados().size());
+            for (Evento evento: view.getListaEventosCadastrados()) {
+                System.out.println(evento.getId() + " - " + evento.getNome());
             }
         } catch (NullPointerException exception){
-            System.out.println("Nenhum evento cadastrado.");
+            System.out.println("Nenhum evento cadastrado.....");
         }
     }
 
-    public void escolhaUsuario(int escolhaUsuario){
+    public void handleEvent(int escolhaUsuario){
 
         switch (escolhaUsuario){
 
@@ -47,9 +46,7 @@ public class PaginaEventosController implements Observer {
                 DetalhesEventoView view1 = new DetalhesEventoView();
                 view1.initDetalhesEventoView(model, eventoEscolhido);
             case 2:
-                model.voltar();
-            case 3:
-                model.deslogarUsuario();
+                model.voltarPaginaInicial();
         }
     }
 

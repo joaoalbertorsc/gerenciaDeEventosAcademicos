@@ -9,7 +9,6 @@ public class MainView implements Observer{
 
     private Model model;
     private MainViewController controller;
-    private int totalEventosCadastrados;
     private boolean finalizar = false;
 
     public void finalizarSistema() {
@@ -31,10 +30,9 @@ public class MainView implements Observer{
             System.out.println("===================================");
             System.out.println("GERENCIAMENTO DE EVENTOS ACADEMICOS");
             System.out.println("===================================");
-            System.out.println("Eventos ja cadastrados: " /* + totalEventosCadastados */);
             System.out.println("Selecione uma opcao:");
             if (model.getUsuarioAutenticado() != null) {
-                System.out.println("Usuario: " + model.getUsuarioAutenticado().getId());
+                System.out.println("Usuario: " + model.getUsuarioAutenticado().getNome());
                 opcoes[0] = "[1] - Fazer Logout";
             } else {
                 opcoes[0] = "[1] - Fazer Login";

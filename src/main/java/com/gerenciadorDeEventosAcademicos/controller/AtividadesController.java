@@ -26,7 +26,7 @@ public class AtividadesController implements Observer{
             case 2:
                 view.getAtividadeEscolhida().getParticipantesDaAtividade().forEach(participante -> System.out.println("Participante : " + participante.getNome()));
             case 3:
-                model.voltar();
+                model.voltarPaginaInicial();
             case 4:
                 model.deslogarUsuario();
         }

@@ -1,5 +1,9 @@
 package com.gerenciadorDeEventosAcademicos.model;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+
 public class Certificado {
     private Participante participante;
     private Atividade atividade;
@@ -11,8 +15,19 @@ public class Certificado {
         this.evento = evento;
     }
 
-    public Certificado emitirCertificado(Certificado certificado){
-        return certificado;
+    public void emitirCertificado () {
+        String conteudo = "Certificamos que " + participante.getNome() + " participou da atividade " + atividade.getNome() + "no evento " + evento.getNome() + " realizada em " + atividade.getDataInicio() + ".";
+        String nomeArquivo = participante.getNome() + "-" + atividade.getNome() + ".txt";
+
+        try {
+            PrintWriter writer = new PrintWriter(new FileWriter(nomeArquivo));
+            writer.println(conteudo);
+            writer.close();
+            System.out.println("Certificado para " + participante.getNome() + " salvo com sucesso no arquivo " + nomeArquivo);
+        } catch (IOException e) {
+            System.out.println("Erro ao salvar o certificado de " + participante.getNome() + " no arquivo " + nomeArquivo);
+            e.printStackTrace();
+        }
     }
 
     public Participante getParticipante() {
@@ -41,10 +56,10 @@ public class Certificado {
 
     @Override
     public String toString() {
-        return "Certificado{" +
+        return "Certificado{\n" +
+                "Participante:'" + participante + '\n' +
                 "Evento: " + evento + '\n' +
-                "Atividade= " + atividade + '\'' +
-                "Participante='" + participante + '\'' +
+                "Atividade: " + atividade + '\n' +
                 '}';
     }
 }

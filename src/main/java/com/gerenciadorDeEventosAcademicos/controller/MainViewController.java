@@ -32,6 +32,7 @@ public class MainViewController implements Observer {
                 loginView.initLoginView(model);
             } else {
                 model.deslogarUsuario();
+                model.voltarPaginaInicial();
             }
                 break;
             case "2" : CadastroView view2 = new CadastroView();
