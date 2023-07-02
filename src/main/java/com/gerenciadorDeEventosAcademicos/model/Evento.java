@@ -31,7 +31,7 @@ public class Evento {
         if (id >= 0 && id <= 999999){
             this.id = id;
         } else {
-            System.out.println("O id informado não esta entre o intervalo de 0 a 999999 \n Tente novamente");
+            System.out.println("O id informado nao esta entre o intervalo de 0 a 999999 \n Tente novamente");
         }
     }
 
