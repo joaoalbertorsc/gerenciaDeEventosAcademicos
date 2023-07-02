@@ -24,9 +24,9 @@ public class AtividadesView implements Observer{
     public void detalhesDaAtividade(){
         Scanner scanner = new Scanner(System.in);
         String[] opcoes = { "[1] - Realizar inscricao na atividade", "[2] - Ver participante(s) inscritos", "[3] - Voltar a pagina inicial", "[4] - Sair do sistema", "index-4","index-5","index-6"};
-        System.out.println("============================================");
-        System.out.println("|   Detalhes sobre a atividade: " + atividadeEscolhida.getNome() + " |");
-        System.out.println("============================================");
+        System.out.println("=========================================");
+        System.out.println("| Detalhes sobre a atividade: " + atividadeEscolhida.getNome() + " |");
+        System.out.println("=========================================");
         System.out.println(atividadeEscolhida);
         System.out.println();
         if (model.getUsuario() instanceof Participante){

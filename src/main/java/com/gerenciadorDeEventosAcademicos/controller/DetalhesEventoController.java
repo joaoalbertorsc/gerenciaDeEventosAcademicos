@@ -53,10 +53,9 @@ public class DetalhesEventoController implements Observer {
                     model.deslogarUsuario();
                 }
             case 4:
-                Organizador organizador = (Organizador) model.getUsuario();
-                organizador.excluirEvento(evento.getId());
-                DetalhesEventoView view1 = new DetalhesEventoView();
-                view1.initDetalhesEventoView(model, evento);
+                model.getEventosCadastrados().remove(evento);
+                PaginaEventosView view1 = new PaginaEventosView();
+                view1.initPaginaEventosView(model);
             case 5:
                 model.voltarPaginaInicial();
             case 6:

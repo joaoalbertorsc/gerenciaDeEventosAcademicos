@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e841b94-0b94-46ab-8e0f-834a2b1cbed8" name="Changes" comment="Atualização de leves &gt;&gt;&gt;">
+    <list default="true" id="5e841b94-0b94-46ab-8e0f-834a2b1cbed8" name="Changes" comment="Atualização &gt;&gt;&gt;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/controller/CertificadosController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/controller/DetalhesEventoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/controller/DetalhesEventoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/controller/PaginaEventosController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/controller/PaginaEventosController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/model/Evento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/model/Evento.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/model/Organizador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/model/Organizador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/view/AtividadesView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/view/AtividadesView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/view/CertificadosView.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/view/DetalhesEventoView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/view/DetalhesEventoView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -176,7 +172,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688305369669</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Atualização &gt;&gt;&gt;">
+      <created>1688315579248</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1688315579249</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -211,7 +214,8 @@
     <MESSAGE value="Novas views e controllers implementados &gt;&gt;&gt;" />
     <MESSAGE value="Atualizando metodos dos models e atualizando views do sistema &gt;&gt;&gt;" />
     <MESSAGE value="Atualização de leves &gt;&gt;&gt;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Atualização de leves &gt;&gt;&gt;" />
+    <MESSAGE value="Atualização &gt;&gt;&gt;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Atualização &gt;&gt;&gt;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

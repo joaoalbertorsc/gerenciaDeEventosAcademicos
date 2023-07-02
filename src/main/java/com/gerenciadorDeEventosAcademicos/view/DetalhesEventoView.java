@@ -25,11 +25,24 @@ public class DetalhesEventoView implements Observer{
     }
     public void detalhesDoEvento(){
         Scanner scanner = new Scanner(System.in);
-        String[] opcoes = {"[1] - Escolher atividade", "[2] - Voltar a pagina inicial", "[3] - Sair", "index 3", "index 4"};
+        String[] opcoes = {"[1] - Escolher atividade", "[2] - Voltar a pagina inicial", "[3] - Sair", "index 3", "index 4", "index 5"};
         System.out.println("======================================");
         System.out.println("Detalhes do evento " + eventoEscolhido.getNome());
         System.out.println("======================================");
         System.out.println(eventoEscolhido);
+        System.out.println("Total atividades cadastradas: " + model.getAtividadesCadastrados().size());
+        System.out.println();
+        if (model.getAtividadesCadastrados().isEmpty()){
+            System.out.println("Nenhuma atividade cadastrada....");
+        } else {
+            int i = 0;
+            System.out.println("Lista de atividades cadastradas >>>");
+            for (Atividade atividade: model.getAtividadesCadastrados()) {
+                System.out.println(i + " - " + atividade.getNome() + " - " + atividade.getDescricao());
+                i++;
+            }
+        }
+        System.out.println();
         if (model.getUsuario() instanceof Organizador){
             opcoes[0] = "[1] - Editar dados do evento";
             opcoes[1] = "[2] - Escolher atividade";
@@ -48,6 +61,7 @@ public class DetalhesEventoView implements Observer{
         }
         System.out.println("Escolha uma opcao");
         int escolhaUsuario = scanner.nextInt();
+        scanner.nextLine();
         controller.handleEvent(escolhaUsuario, eventoEscolhido);
         model.detachObserver(this);
     }

@@ -40,6 +40,7 @@ public class PaginaEventosView implements Observer{
         }
         System.out.println("Escolha uma opção: ");
         escolhaUsuario = scanner.nextInt();
+        scanner.nextLine();
         controller.handleEvent(escolhaUsuario);
         numeroEventoEscolhido = scanner.nextInt();
         model.detachObserver(this);

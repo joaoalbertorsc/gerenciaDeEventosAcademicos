@@ -1,6 +1,8 @@
 package com.gerenciadorDeEventosAcademicos.model;
+import com.gerenciadorDeEventosAcademicos.view.DetalhesEventoView;
 import com.gerenciadorDeEventosAcademicos.view.PaginaEventosView;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Organizador extends Palestrante{
     private Evento evento;
@@ -60,43 +62,56 @@ public class Organizador extends Palestrante{
     }
 
     public void handleEvent1(int i, Model model){
+        Scanner sc = new Scanner(System.in);
         switch (i){
             case 1:
                 System.out.println("Defina o novo nome desejado:");
-                evento.setNome(scanner.nextLine());
-                editarEvento(evento, model);
+                String nome = sc.nextLine();
+                evento.setNome(nome);
+                DetalhesEventoView view = new DetalhesEventoView();
+                view.initDetalhesEventoView(model, evento);
             case 2:
                 System.out.println("Escreva a nova descirção desejada:");
-                evento.setDescricao(scanner.nextLine());
-                editarEvento(evento, model);
+                String descricao = sc.nextLine();
+                evento.setDescricao(descricao);
+                DetalhesEventoView view0 = new DetalhesEventoView();
+                view0.initDetalhesEventoView(model, evento);
             case 3:
                 editarEndereço(evento.getEndereco());
-                editarEvento(evento, model);
+                DetalhesEventoView view1 = new DetalhesEventoView();
+                view1.initDetalhesEventoView(model, evento);
             case 4:
                 System.out.println("Defina uma nova data de inicio:");
-                evento.setDataInicio(scanner.nextLine());
-                editarEvento(evento, model);
+                String dataInicio = sc.nextLine();
+                evento.setDataInicio(dataInicio);
+                DetalhesEventoView view2 = new DetalhesEventoView();
+                view2.initDetalhesEventoView(model, evento);
             case 5:
                 System.out.println("Defina uma nova data de encerramento:");
-                evento.setDataFim(scanner.nextLine());
-                editarEvento(evento, model);
+                String dataFim = sc.nextLine();
+                evento.setDataFim(dataFim);
+                DetalhesEventoView view3 = new DetalhesEventoView();
+                view3.initDetalhesEventoView(model, evento);
             case 6:
                 System.out.println("Defina um novo horário para inicio:");
-                evento.setHoraInicio(scanner.nextLine());
-                editarEvento(evento, model);
+                String horarioInicio = sc.nextLine();
+                evento.setHoraInicio(horarioInicio);
+                DetalhesEventoView view4 = new DetalhesEventoView();
+                view4.initDetalhesEventoView(model, evento);
             case 7:
                 System.out.println("Defina um novo horário para encerramento:");
-                evento.setHoraInicio(scanner.nextLine());
-                editarEvento(evento, model);
+                String horarioFim = sc.nextLine();
+                evento.setHoraInicio(horarioFim);
+                DetalhesEventoView view5 = new DetalhesEventoView();
+                view5.initDetalhesEventoView(model, evento);
             case 8:
-                PaginaEventosView pagina = new PaginaEventosView();
-                pagina.initPaginaEventosView(model);
+                DetalhesEventoView view6 = new DetalhesEventoView();
+                view6.initDetalhesEventoView(model, evento);
             default:
                 System.out.println("Opção invalida, confira o numero digitado.");
                 System.out.println("Tente novamente.");
                 editarEvento(evento, model);
         }
-        scanner.close();
     }
 
     public void editarEndereço(Endereco endereco){
@@ -130,9 +145,9 @@ public class Organizador extends Palestrante{
         }
 
     }
-    public void excluirEvento(int id){
-        eventosCadastrados.remove(id);
-        System.out.println("Evento " + eventosCadastrados.get(id).getNome() + " excluido com sucesso!");
+    public void excluirEvento(Evento evento){
+        eventosCadastrados.remove(evento);
+        System.out.println("Evento " + evento.getNome() + " excluido com sucesso!");
     }
 
     public Atividade criarAtividade(){
@@ -140,17 +155,23 @@ public class Organizador extends Palestrante{
         atividadesCadastradas.add(atividade);
         System.out.println("Preencha com os dados da atividade >>>");
         System.out.println("Nome:");
-        atividade.setNome(scanner.nextLine());
+        String nome = scanner.nextLine();
+        atividade.setNome(nome);
         System.out.println("Descrição:");
-        atividade.setDescricao(scanner.nextLine());
+        String descricao = scanner.nextLine();
+        atividade.setDescricao(descricao);
         System.out.println("Data de inicio:");
-        atividade.setDataInicio(scanner.nextLine());
+        String dataInicio = scanner.nextLine();
+        atividade.setDataInicio(dataInicio);
         System.out.println("Data de finalizacao:");
-        atividade.setDataFim(scanner.nextLine());
+        String dataFim = scanner.nextLine();
+        atividade.setDataFim(dataFim);
         System.out.println("Hora de inicio:");
-        atividade.setHoraInicio(scanner.nextLine());
+        String horaInicio = scanner.nextLine();
+        atividade.setHoraInicio(horaInicio);
         System.out.println("Hora de finalizacao:");
-        atividade.setHoraFim(scanner.nextLine());
+        String horaFim = scanner.nextLine();
+        atividade.setHoraFim(horaFim);
         return atividade;
     }
 
