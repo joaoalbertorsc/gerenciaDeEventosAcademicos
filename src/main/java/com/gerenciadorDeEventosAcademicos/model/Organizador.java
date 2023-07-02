@@ -130,11 +130,35 @@ public class Organizador extends Palestrante{
         }
 
     }
-    public void excluirEvento(int id){}
+    public void excluirEvento(int id){
+        eventosCadastrados.remove(id);
+        System.out.println("Evento " + eventosCadastrados.get(id).getNome() + " excluido com sucesso!");
+    }
 
-    public void criarAtividade(){
-        Atividade atividade = new Atividade();
+    public Atividade criarAtividade(){
+        Atividade atividade = new Atividade(evento);
         atividadesCadastradas.add(atividade);
+        System.out.println("Preencha com os dados da atividade >>>");
+        System.out.println("Nome:");
+        atividade.setNome(scanner.nextLine());
+        System.out.println("Descrição:");
+        atividade.setDescricao(scanner.nextLine());
+        System.out.println("Data de inicio:");
+        atividade.setDataInicio(scanner.nextLine());
+        System.out.println("Data de finalizacao:");
+        atividade.setDataFim(scanner.nextLine());
+        System.out.println("Hora de inicio:");
+        atividade.setHoraInicio(scanner.nextLine());
+        System.out.println("Hora de finalizacao:");
+        atividade.setHoraFim(scanner.nextLine());
+        return atividade;
+    }
+
+    public void removerPalestrante(Atividade atividade, Palestrante palestrante){
+        atividade.getPalestrantesDaAtividade().remove(palestrante.getId());
+        System.out.println();
+        System.out.println("Palestrante " + palestrante.getNome() + " removido com sucesso!");
+        System.out.println();
     }
 
     public void editarAtividade(Atividade atividade){}

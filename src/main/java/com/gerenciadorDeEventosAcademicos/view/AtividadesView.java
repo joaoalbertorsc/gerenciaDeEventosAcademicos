@@ -23,9 +23,9 @@ public class AtividadesView implements Observer{
 
     public void detalhesDaAtividade(){
         Scanner scanner = new Scanner(System.in);
-        String[] opcoes = { "[1] - Inscrever-se nessa atividade", "[2] - Ver participante(s) inscritos", "[3] - Voltar a pagina inicial", "[4] - Sair do sistema"};
+        String[] opcoes = { "[1] - Realizar inscricao na atividade", "[2] - Ver participante(s) inscritos", "[3] - Voltar a pagina inicial", "[4] - Sair do sistema", "index-4","index-5","index-6"};
         System.out.println("============================================");
-        System.out.println("Detalhes sobre a atividade: " + atividadeEscolhida.getNome());
+        System.out.println("|   Detalhes sobre a atividade: " + atividadeEscolhida.getNome() + " |");
         System.out.println("============================================");
         System.out.println(atividadeEscolhida);
         System.out.println();
@@ -38,10 +38,11 @@ public class AtividadesView implements Observer{
             opcoes[0] = "[1] - Editar atividade";
         } else {
             opcoes[1] = "[2] - Atribuir palestrante";
-            opcoes[2] = "[3] - Emitir certificados dos participantes";
-            opcoes[3] = "[4] - Ver participantes inscritos";
-            opcoes[4] = "[5] - Ver palestrantes atribuidos";
-            opcoes[5] = "[6] - Excluir atividade";
+            opcoes[2] = "[3] - Remover palestrante";
+            opcoes[3] = "[4] - Emitir certificados dos participantes";
+            opcoes[4] = "[5] - Ver participantes inscritos";
+            opcoes[5] = "[6] - Ver palestrantes atribuidos";
+            opcoes[6] = "[7] - Excluir atividade";
         }
         System.out.println(opcoes[0]);
         System.out.println(opcoes[1]);

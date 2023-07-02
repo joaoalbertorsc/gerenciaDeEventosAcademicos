@@ -21,38 +21,29 @@ public class PaginaEventosController implements Observer {
     public void handleEvent(int escolhaUsuario) throws NullPointerException, IndexOutOfBoundsException{
 
         switch (escolhaUsuario){
-            case 1:
+            case 1 :
                 Scanner sc = new Scanner(System.in);
                 eventosDisponiveis();
                 System.out.println("Digite o numero do evento desejado: ");
                 int numEvento;
                 numEvento = sc.nextInt();
-                if (numEvento > 0){
-                    numEvento-=1;
-                }
+                numEvento-=1;
                 try{
-                    if (model.getEventosCadastrados().get(numEvento) != null) {
-                        Evento eventoEscolhido = model.getEventosCadastrados().get(numEvento);
-                        DetalhesEventoView view1 = new DetalhesEventoView();
-                        view1.initDetalhesEventoView(model, eventoEscolhido);
-                    } else {
-                        System.out.println("ID invalido.");
-                        System.out.println("Confira o numero e tente novamente.");
-                        PaginaEventosView pagina = new PaginaEventosView();
-                        pagina.initPaginaEventosView(model);
-                    }
-
+                    Evento eventoEscolhido = model.getEventosCadastrados().get(numEvento);
+                    DetalhesEventoView view1 = new DetalhesEventoView();
+                    view1.initDetalhesEventoView(model, eventoEscolhido);
                 } catch (NullPointerException | IndexOutOfBoundsException e){
-                        System.out.println("Nenhum evento correspondente!");
-                        System.out.println("Confira o numero digitado, tente novamente.");
-                        PaginaEventosView pagina = new PaginaEventosView();
-                        pagina.initPaginaEventosView(model);
+                    System.out.println("ID invalido.");
+                    System.out.println("Confira o numero e tente novamente.");
+                    PaginaEventosView pagina = new PaginaEventosView();
+                    pagina.initPaginaEventosView(model);
                     }
             case 2:
                 if (model.getUsuario() instanceof Organizador){
                     Organizador organizador = (Organizador) model.getUsuario();
                     Evento novoEvento = organizador.criarEvento();
                     model.getEventosCadastrados().add(novoEvento);
+                    novoEvento.setOrganizador((Organizador) model.getUsuario());
                     PaginaEventosView pagina1 = new PaginaEventosView();
                     pagina1.initPaginaEventosView(model);
                 } else {

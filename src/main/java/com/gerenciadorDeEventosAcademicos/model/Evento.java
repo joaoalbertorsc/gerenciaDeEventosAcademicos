@@ -17,15 +17,14 @@ public class Evento {
     private ArrayList<Palestrante> palestrantesDoEvento = new ArrayList<Palestrante>();
     Scanner scanner = new Scanner(System.in);
     public String toString(){
-        return "-------------------------------------------" +
-                "\nEvento: " + nome +
+        return "\nEvento: " + nome +
                 "\nDescricao: " + descricao +
                 "\n" + endereco +
                 "\n" + organizador +
-                "\n*******************************************" +
+                "\n*********************************" +
                 "\nData de inicio: " + dataInicio +
                 "\nData de finalizacao: " + dataFim +
-                "\n*******************************************";
+                "\n*********************************";
     }
 
     public void setId(int id){

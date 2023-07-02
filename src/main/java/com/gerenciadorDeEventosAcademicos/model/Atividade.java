@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Atividade {
 
+    private Evento evento;
     private int id;
     private String nome;
     private String descricao;
@@ -15,6 +16,10 @@ public class Atividade {
     private String horaFim;
     private ArrayList<Participante> participantesDaAtividade = new ArrayList<Participante>();
     private ArrayList<Palestrante> palestrantesDaAtividade = new ArrayList<Palestrante>();
+
+    public Atividade(Evento evento) {
+        this.evento = evento;
+    }
 
     @Override
     public String toString() {
@@ -128,6 +133,14 @@ public class Atividade {
         else {
             System.out.println("O formato da hora do fim informado esta incoreto.\n Tente novamente passando a hora no formato xx:xx");
         }
+    }
+
+    public ArrayList<Palestrante> getPalestrantesDaAtividade() {
+        return palestrantesDaAtividade;
+    }
+
+    public void setPalestrantesDaAtividade(ArrayList<Palestrante> palestrantesDaAtividade) {
+        this.palestrantesDaAtividade = palestrantesDaAtividade;
     }
 
     public ArrayList<Participante> getParticipantesDaAtividade() {
