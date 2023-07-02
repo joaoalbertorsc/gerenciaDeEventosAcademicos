@@ -57,6 +57,7 @@ public class Organizador extends Palestrante{
         System.out.println("[8] - Voltar a tela anterior");
         System.out.println("Escolha uma opcção:");
         int i = scanner.nextInt();
+        scanner.nextLine();
         handleEvent1(i, model);
         scanner.close();
     }
