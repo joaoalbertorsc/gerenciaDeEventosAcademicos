@@ -28,7 +28,7 @@ public class MainView implements Observer{
     public void menuPrincipal() throws NoSuchElementException {
         Scanner sc = new Scanner(System.in);
         String[] opcoes = { "[1] - Fazer Login", "[2] - Fazer Cadastro", "[3] - Sair" };
-        do {
+        while (!finalizar) {
             try{
                 System.out.println("===================================");
                 System.out.println("GERENCIAMENTO DE EVENTOS ACADEMICOS");
@@ -37,6 +37,7 @@ public class MainView implements Observer{
                 if (model.getUsuarioAutenticado() != null) {
                     System.out.println("Usuario: " + model.getUsuarioAutenticado().getNome());
                     opcoes[0] = "[1] - Fazer Logout";
+                    opcoes[1] = "[2] - Acessar pagina de eventos";
                 } else {
                     opcoes[0] = "[1] - Fazer Login";
                 }
@@ -52,8 +53,7 @@ public class MainView implements Observer{
                 this.finalizarSistema();
                 break;
             }
-
-        } while (!finalizar);
+        }
         sc.close();
     }
 

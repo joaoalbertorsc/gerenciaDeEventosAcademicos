@@ -14,7 +14,8 @@ public class Model {
     private ArrayList<Participante> participantesLista = new ArrayList<Participante>();
     private ArrayList<Palestrante> palestrantesLista = new ArrayList<Palestrante>();
     private ArrayList<Organizador> organizadoresLista = new ArrayList<Organizador>();
-    private ArrayList<Evento> totalEventos;
+    private ArrayList<Evento> eventosCadastrados = new ArrayList<Evento>();
+    private ArrayList<Atividade> atividadesCadastrados = new ArrayList<Atividade>();
     private ArrayList<Observer> observers = new ArrayList<Observer>();
 
     public void attachObserver(Observer observer) {
@@ -90,6 +91,10 @@ public class Model {
         return usuario;
     }
 
+    public ArrayList<Evento> getEventosCadastrados() {
+        return eventosCadastrados;
+    }
+
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
@@ -106,14 +111,6 @@ public class Model {
         this.usuarioAutenticado = usuarioAutenticado;
     }
 
-    public ArrayList<Evento> getTotalEventos() {
-        return totalEventos;
-    }
-
-    public void setTotalEventos(ArrayList<Evento> totalEventos) {
-        this.totalEventos = totalEventos;
-    }
-
     public ArrayList<Participante> getParticipantesLista() {
         return participantesLista;
     }
@@ -123,5 +120,9 @@ public class Model {
 
     public ArrayList<Organizador> getOrganizadoresLista() {
         return organizadoresLista;
+    }
+
+    public ArrayList<Atividade> getAtividadesCadastrados() {
+        return atividadesCadastrados;
     }
 }

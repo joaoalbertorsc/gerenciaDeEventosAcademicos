@@ -8,7 +8,6 @@ public class CadastroController implements Observer {
 
     private Model model;
     private CadastroView view;
-    private Usuario usuario;
 
 
 
@@ -22,11 +21,11 @@ public class CadastroController implements Observer {
         switch (event) {
             case "OK" :
                 tipoUsuario(view.getTipoUsuario());
-                usuario.setId(view.getId());
-                usuario.setEmail(view.getEmail());
-                usuario.setNome(view.getNome());
-                usuario.setSenha(view.getSenha());
-                model.setUsuarioSistema(usuario);
+                model.getUsuario().setId(view.getId());
+                model.getUsuario().setEmail(view.getEmail());
+                model.getUsuario().setNome(view.getNome());
+                model.getUsuario().setSenha(view.getSenha());
+                model.setUsuarioSistema(model.getUsuario());
                 model.detachObserver(this);
                 break;
         }
@@ -37,18 +36,18 @@ public class CadastroController implements Observer {
             case 1:
                 Usuario usuario1 = new Participante();
                 Participante participante = (Participante) usuario1;
-                this.usuario = participante;
+                model.setUsuario(participante);
                 model.getParticipantesLista().add(participante);
             case 2:
                 Usuario usuario2 = new Palestrante();
                 Palestrante palestrante = (Palestrante) usuario2;
-                this.usuario = palestrante;
+                model.setUsuario(palestrante);
                 model.getPalestrantesLista().add(palestrante);
 
             case 3:
                 Usuario usuario3 = new Organizador();
                 Organizador organizador = (Organizador) usuario3;
-                this.usuario = organizador;
+                model.setUsuario(organizador);
                 model.getOrganizadoresLista().add(organizador);
         }
     }

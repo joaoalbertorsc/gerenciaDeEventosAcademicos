@@ -36,7 +36,6 @@ public class CadastroView implements Observer{
                 "\n[1] Participante;" +
                 "\n[2] Palestrante;" +
                 "\n[3] Organizador;");
-        System.out.println();
         System.out.println("Digite o numero correspondente: ");
         tipoUsuario = scanner.nextInt();
         scanner.nextLine();

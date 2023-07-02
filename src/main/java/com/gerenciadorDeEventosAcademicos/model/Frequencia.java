@@ -9,8 +9,9 @@ public class Frequencia {
     private Atividade atividade;
     private ArrayList<Participante> participantesPresentes;
 
-    public void marcarPresenca() {
+    public void marcarPresenca(Atividade atividade) {
         Scanner sc = new Scanner(System.in);
+        this.atividade = atividade;
         System.out.println("[1] - Presente" +
                 "[2] - Ausente");
         for (Participante participante: atividade.getParticipantesDaAtividade()) {
@@ -30,13 +31,6 @@ public class Frequencia {
         System.out.println("Lista de presenca:");
         for (Participante participante: participantesPresentes) {
             System.out.println(participante.getNome());
-        }
-    }
-
-    public void gerarCertificados() {
-        for (Participante participante: participantesPresentes) {
-            Certificado certificado = new Certificado(participante, atividade);
-            certificado.emitirCertificado();
         }
     }
 

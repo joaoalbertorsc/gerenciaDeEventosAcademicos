@@ -1,6 +1,7 @@
 package com.gerenciadorDeEventosAcademicos.model;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Evento {
     private int id;
@@ -14,18 +15,17 @@ public class Evento {
     private ArrayList<Atividade> atividadesDoEvento = new ArrayList<Atividade>();
     private ArrayList<Participante> participantesDoEvento = new ArrayList<Participante>();
     private ArrayList<Palestrante> palestrantesDoEvento = new ArrayList<Palestrante>();
+    Scanner scanner = new Scanner(System.in);
     public String toString(){
         return "-------------------------------------------" +
                 "\nEvento: " + nome +
                 "\nDescricao: " + descricao +
-                "\n-------------------------------------------" +
                 "\n" + endereco +
-                "\n-------------------------------------------" +
                 "\n" + organizador +
-                "\n-------------------------------------------" +
+                "\n*******************************************" +
                 "\nData de inicio: " + dataInicio +
                 "\nData de finalizacao: " + dataFim +
-                "\n-------------------------------------------";
+                "\n*******************************************";
     }
 
     public void setId(int id){
@@ -61,7 +61,20 @@ public class Evento {
         return endereco;
     }
 
-    public void setEndereco(Endereco endereco) {
+    public void criarEndereco() {
+        Scanner sc = new Scanner(System.in);
+        String rua, numero, cidade, referencia;
+        System.out.println("Escreva abaixo os dados referentes ao endereco do evento:");
+        System.out.println("Nome da rua:");
+        rua = sc.nextLine();
+        System.out.println("Digite o numero do local:");
+        numero = sc.nextLine();
+        System.out.println("Nome da cidade:");
+        cidade = sc.nextLine();
+        System.out.println("Escreva a referencia para o endereco:");
+        referencia = sc.nextLine();
+        System.out.println("---------------------------------------------------------");
+        endereco = new Endereco(rua, numero, cidade, referencia);
         this.endereco = endereco;
     }
 
@@ -82,6 +95,7 @@ public class Evento {
             this.dataInicio = dataInicio;
         } else {
             System.out.println("O formato da data de inicio informada esta incoreto.\n Tente novamente passando a data no formato xx/xx/xxxx");
+            this.setDataInicio(scanner.nextLine());
         }
     }
 
@@ -93,7 +107,8 @@ public class Evento {
         if (dataFim.matches("\\d{1,2}/\\d{1,2}/\\d{4}")) {
             this.dataFim = dataFim;
         } else {
-            System.out.println("O formato da data do fim informada esta incoreto.\n Tente novamente passando a data no formato xx/xx/xxxx");
+            System.out.println("O formato da data do fim informada esta incoreto.\nTente novamente passando a data no formato xx/xx/xxxx");
+            this.setDataFim(scanner.nextLine());
         }
     }
 
@@ -107,7 +122,8 @@ public class Evento {
             this.horaInicio = horaInicio;
         }
         else {
-            System.out.println("O formato da hora de inicio informada esta incoreto.\n Tente novamente passando a hora no formato xx:xx");
+            System.out.println("O formato da hora de inicio informada esta incoreto.\nTente novamente passando a hora no formato xx:xx");
+            this.setHoraInicio(scanner.nextLine());
         }
     }
 

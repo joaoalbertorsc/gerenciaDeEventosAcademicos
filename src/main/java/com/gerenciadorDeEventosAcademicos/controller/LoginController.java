@@ -19,7 +19,7 @@ public class LoginController implements Observer {
     public void handleEvent(String event) {
         switch (event) {
             case "OK" :
-                Usuario usuario = model.autenticarUsuario(view.getLogin(), view.getSenha());
+                Usuario usuario = model.getUsuario();
                 if (usuario == null) {
                     view.exibeMSG("ERRO: Usuario e/ou Senha invalidos!");
                     model.voltarPaginaInicial();

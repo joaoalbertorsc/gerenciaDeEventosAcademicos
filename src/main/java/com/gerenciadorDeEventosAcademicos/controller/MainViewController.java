@@ -1,10 +1,7 @@
 package com.gerenciadorDeEventosAcademicos.controller;
 
 import com.gerenciadorDeEventosAcademicos.model.Model;
-import com.gerenciadorDeEventosAcademicos.view.CadastroView;
-import com.gerenciadorDeEventosAcademicos.view.LoginView;
-import com.gerenciadorDeEventosAcademicos.view.MainView;
-import com.gerenciadorDeEventosAcademicos.view.Observer;
+import com.gerenciadorDeEventosAcademicos.view.*;
 
 import java.util.NoSuchElementException;
 
@@ -29,7 +26,8 @@ public class MainViewController implements Observer {
     }
     public void handleEvent(String event) throws NoSuchElementException {
         switch (event) {
-            case "1" : if (model.getUsuarioAutenticado() == null) {
+            case "1" :
+                if (model.getUsuarioAutenticado() == null) {
                 LoginView loginView = new LoginView();
                 loginView.initLoginView(model);
             } else {
@@ -37,7 +35,12 @@ public class MainViewController implements Observer {
                 model.voltarPaginaInicial();
             }
                 break;
-            case "2" : CadastroView view2 = new CadastroView();
+            case "2" :
+                if (model.getUsuarioAutenticado() != null){
+                    PaginaEventosView view1 = new PaginaEventosView();
+                    view1.initPaginaEventosView(model);
+                }
+                CadastroView view2 = new CadastroView();
                 view2.initNewUserView(model);
                 break;
             case "3" :

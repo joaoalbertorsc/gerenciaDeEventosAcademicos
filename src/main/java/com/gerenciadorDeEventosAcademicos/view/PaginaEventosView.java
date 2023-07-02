@@ -1,8 +1,6 @@
 package com.gerenciadorDeEventosAcademicos.view;
-import com.gerenciadorDeEventosAcademicos.controller.LoginController;
 import com.gerenciadorDeEventosAcademicos.controller.PaginaEventosController;
-import com.gerenciadorDeEventosAcademicos.model.Evento;
-import com.gerenciadorDeEventosAcademicos.model.Model;
+import com.gerenciadorDeEventosAcademicos.model.*;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -10,11 +8,10 @@ import java.util.Scanner;
 public class PaginaEventosView implements Observer{
 
     private Model model;
+    private Evento evento;
     private PaginaEventosController controller;
-    private ArrayList<Evento> listaEventosCadastrados;
     private int numeroEventoEscolhido;
     private int escolhaUsuario;
-
     public void initPaginaEventosView(Model model) {
         this.model = model;
         controller = new PaginaEventosController();
@@ -25,28 +22,28 @@ public class PaginaEventosView implements Observer{
 
     private void paginaEventos() {
         Scanner scanner = new Scanner(System.in);
+        String[] opcoes = {"[1] - Escolher evento", "[2] - Voltar para a página inicial","index 2"};
         System.out.println("======================");
         System.out.println("PAGINA DE EVENTOS");
         System.out.println("======================");
         System.out.println();
         controller.eventosDisponiveis();
-        System.out.println("[1] - Escoilher evento" +
-                "\n[2] - Voltar para a página inicial");
+        if (model.getUsuario() instanceof Organizador){
+            opcoes[1] = "[2] - Criar evento";
+            opcoes[2] = "[3] - Voltar para a página inicial";
+            System.out.println(opcoes[0]);
+            System.out.println(opcoes[1]);
+            System.out.println(opcoes[2]);
+        } else {
+            System.out.println(opcoes[0]);
+            System.out.println(opcoes[1]);
+        }
         System.out.println("Escolha uma opção: ");
         escolhaUsuario = scanner.nextInt();
         controller.handleEvent(escolhaUsuario);
         numeroEventoEscolhido = scanner.nextInt();
         model.detachObserver(this);
     }
-
-    public ArrayList<Evento> getListaEventosCadastrados() {
-        return listaEventosCadastrados;
-    }
-
-    public void setListaEventosCadastrados(ArrayList<Evento> listaEventosCadastrados) {
-        this.listaEventosCadastrados = listaEventosCadastrados;
-    }
-
     public int getNumeroEventoEscolhido() {
         return numeroEventoEscolhido;
     }

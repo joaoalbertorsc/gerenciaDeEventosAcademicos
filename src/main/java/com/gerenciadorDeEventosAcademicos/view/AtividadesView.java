@@ -10,7 +10,6 @@ public class AtividadesView implements Observer{
     private AtividadesController controller;
     private Atividade atividadeEscolhida;
     private int escolhaUsuario;
-    private Usuario usuario = model.getUsuarioAutenticado();
 
     public void initAtividadesView(Model model, Atividade atividadeEscolhida) {
         this.model = model;
@@ -28,15 +27,14 @@ public class AtividadesView implements Observer{
         System.out.println("============================================");
         System.out.println("Detalhes sobre a atividade: " + atividadeEscolhida.getNome());
         System.out.println("============================================");
-        atividadeEscolhida.toString();
+        System.out.println(atividadeEscolhida);
         System.out.println();
-        if (usuario instanceof Participante){
-            usuario = (Participante) model.getUsuarioAutenticado();
+        if (model.getUsuario() instanceof Participante){
             if (atividadeEscolhida.getParticipantesDaAtividade().contains((Participante) model.getUsuarioAutenticado())){
                 System.out.println("***Voce já está inscrito nessa atividade!***");
                 opcoes[0] = "[1] - Cancelar inscrição";
             }
-        } else if (usuario instanceof Palestrante || usuario instanceof Organizador) {
+        } else if (model.getUsuario() instanceof Palestrante || model.getUsuario() instanceof Organizador) {
             opcoes[0] = "[1] - Editar atividade";
         } else {
             opcoes[1] = "[2] - Atribuir palestrante";
@@ -58,31 +56,18 @@ public class AtividadesView implements Observer{
     public void inscricaoRealizada(){
         System.out.println("Inscrição realizada com sucesso!");
     }
-
     public Atividade getAtividadeEscolhida() {
         return atividadeEscolhida;
     }
-
     public void setAtividadeEscolhida(Atividade atividadeEscolhida) {
         this.atividadeEscolhida = atividadeEscolhida;
     }
-
     public int getEscolhaUsuario() {
         return escolhaUsuario;
     }
-
     public void setEscolhaUsuario(int escolhaUsuario) {
         this.escolhaUsuario = escolhaUsuario;
     }
-
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
-
     @Override
     public void update() {
 
