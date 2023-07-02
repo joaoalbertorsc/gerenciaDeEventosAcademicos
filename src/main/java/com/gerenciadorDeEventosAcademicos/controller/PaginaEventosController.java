@@ -3,6 +3,7 @@ import com.gerenciadorDeEventosAcademicos.model.Evento;
 import com.gerenciadorDeEventosAcademicos.model.Model;
 import com.gerenciadorDeEventosAcademicos.model.Organizador;
 import com.gerenciadorDeEventosAcademicos.view.DetalhesEventoView;
+import com.gerenciadorDeEventosAcademicos.view.MainView;
 import com.gerenciadorDeEventosAcademicos.view.Observer;
 import com.gerenciadorDeEventosAcademicos.view.PaginaEventosView;
 import java.util.Scanner;
@@ -23,21 +24,27 @@ public class PaginaEventosController implements Observer {
         switch (escolhaUsuario){
             case 1 :
                 Scanner sc = new Scanner(System.in);
-                eventosDisponiveis();
-                System.out.println("Digite o numero do evento desejado: ");
-                int numEvento;
-                numEvento = sc.nextInt();
-                numEvento-=1;
-                try{
-                    Evento eventoEscolhido = model.getEventosCadastrados().get(numEvento);
-                    DetalhesEventoView view1 = new DetalhesEventoView();
-                    view1.initDetalhesEventoView(model, eventoEscolhido);
-                } catch (NullPointerException | IndexOutOfBoundsException e){
-                    System.out.println("ID invalido.");
-                    System.out.println("Confira o numero e tente novamente.");
-                    PaginaEventosView pagina = new PaginaEventosView();
-                    pagina.initPaginaEventosView(model);
+                if (model.getEventosCadastrados().isEmpty()){
+                    System.out.println("Nenhum evento cadastrado...");
+                    MainView view1 = new MainView();
+                    view1.initMainView(model);
+                } else {
+                    eventosDisponiveis();
+                    System.out.println("Digite o numero do evento desejado: ");
+                    int numEvento;
+                    numEvento = sc.nextInt();
+                    numEvento-=1;
+                    try{
+                        Evento eventoEscolhido = model.getEventosCadastrados().get(numEvento);
+                        DetalhesEventoView view1 = new DetalhesEventoView();
+                        view1.initDetalhesEventoView(model, eventoEscolhido);
+                    } catch (NullPointerException | IndexOutOfBoundsException e){
+                        System.out.println("ID invalido.");
+                        System.out.println("Confira o numero e tente novamente.");
+                        PaginaEventosView pagina = new PaginaEventosView();
+                        pagina.initPaginaEventosView(model);
                     }
+                }
             case 2:
                 if (model.getUsuario() instanceof Organizador){
                     Organizador organizador = (Organizador) model.getUsuario();

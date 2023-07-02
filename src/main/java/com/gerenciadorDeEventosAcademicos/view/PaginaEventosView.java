@@ -22,7 +22,7 @@ public class PaginaEventosView implements Observer{
 
     private void paginaEventos() {
         Scanner scanner = new Scanner(System.in);
-        String[] opcoes = {"[1] - Escolher evento", "[2] - Voltar para a página inicial","index 2"};
+        String[] opcoes = {"[1] - Escolher evento", "[2] - Voltar para a pagina inicial","index 2"};
         System.out.println("======================");
         System.out.println("PAGINA DE EVENTOS");
         System.out.println("======================");
@@ -30,7 +30,7 @@ public class PaginaEventosView implements Observer{
         controller.eventosDisponiveis();
         if (model.getUsuario() instanceof Organizador){
             opcoes[1] = "[2] - Criar evento";
-            opcoes[2] = "[3] - Voltar para a página inicial";
+            opcoes[2] = "[3] - Voltar para a pagina inicial";
             System.out.println(opcoes[0]);
             System.out.println(opcoes[1]);
             System.out.println(opcoes[2]);
@@ -38,7 +38,7 @@ public class PaginaEventosView implements Observer{
             System.out.println(opcoes[0]);
             System.out.println(opcoes[1]);
         }
-        System.out.println("Escolha uma opção: ");
+        System.out.println("Escolha uma opcao: ");
         escolhaUsuario = scanner.nextInt();
         scanner.nextLine();
         controller.handleEvent(escolhaUsuario);

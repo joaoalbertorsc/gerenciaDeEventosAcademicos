@@ -19,9 +19,9 @@ public class Frequencia {
             String resposta = sc.nextLine();
             if (resposta.equalsIgnoreCase("1")){
                 participantesPresentes.add(participante);
-                System.out.println(participante.getNome() + " está presente.");
+                System.out.println(participante.getNome() + " esta presente.");
             } else {
-                System.out.println(participante.getNome() + " está ausente.");
+                System.out.println(participante.getNome() + " esta ausente.");
             }
         }
         sc.close();

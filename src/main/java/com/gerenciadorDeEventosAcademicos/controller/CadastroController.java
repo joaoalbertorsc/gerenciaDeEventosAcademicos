@@ -38,17 +38,20 @@ public class CadastroController implements Observer {
                 Participante participante = (Participante) usuario1;
                 model.setUsuario(participante);
                 model.getParticipantesLista().add(participante);
+                break;
             case 2:
                 Usuario usuario2 = new Palestrante();
                 Palestrante palestrante = (Palestrante) usuario2;
                 model.setUsuario(palestrante);
                 model.getPalestrantesLista().add(palestrante);
+                break;
 
             case 3:
                 Usuario usuario3 = new Organizador();
                 Organizador organizador = (Organizador) usuario3;
                 model.setUsuario(organizador);
                 model.getOrganizadoresLista().add(organizador);
+                break;
         }
     }
 

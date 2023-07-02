@@ -23,14 +23,15 @@ public class LoginView implements Observer{
 
     private void logarUsuario() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("==========================");
-        System.out.println("******TELA DE LOGIN*******");
-        System.out.println("==========================");
+        System.out.println("=============================");
+        System.out.println("|       TELA DE LOGIN       |");
+        System.out.println("=============================");
         System.out.println();
         System.out.print("Digite o seu ID: ");
         login = scanner.nextLine();
         System.out.print("Digite a sua senha: ");
         senha = scanner.nextLine();
+        model.autenticarUsuario(login, senha);
         controller.handleEvent("OK");
         model.detachObserver(this);
     }

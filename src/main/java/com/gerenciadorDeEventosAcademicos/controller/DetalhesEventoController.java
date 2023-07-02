@@ -37,6 +37,11 @@ public class DetalhesEventoController implements Observer {
                 }
             case 2:
                 if (model.getUsuario() instanceof Organizador){
+                    if (model.getAtividadesCadastrados().isEmpty()) {
+                        System.out.println("Nenhuma atividade cadastrada...");
+                        DetalhesEventoView view2 = new DetalhesEventoView();
+                        view2.initDetalhesEventoView(model, evento);
+                    }
                     escolherAtividade();
                 } else {
                     model.voltarPaginaInicial();

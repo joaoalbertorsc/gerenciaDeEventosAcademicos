@@ -27,7 +27,7 @@ public class MainViewController implements Observer {
     public void handleEvent(String event) throws NoSuchElementException {
         switch (event) {
             case "1" :
-                if (model.getUsuarioAutenticado() == null) {
+                if (model.getUsuario() == null) {
                 LoginView loginView = new LoginView();
                 loginView.initLoginView(model);
             } else {
@@ -36,7 +36,7 @@ public class MainViewController implements Observer {
             }
                 break;
             case "2" :
-                if (model.getUsuarioAutenticado() != null){
+                if (model.getUsuario() != null){
                     PaginaEventosView view1 = new PaginaEventosView();
                     view1.initPaginaEventosView(model);
                 }

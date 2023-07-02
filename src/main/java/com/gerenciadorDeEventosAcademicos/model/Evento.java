@@ -93,7 +93,7 @@ public class Evento {
         if (dataInicio.matches("\\d{1,2}/\\d{1,2}/\\d{4}")) {
             this.dataInicio = dataInicio;
         } else {
-            System.out.println("O formato da data de inicio informada esta incoreto.\n Tente novamente passando a data no formato xx/xx/xxxx");
+            System.out.println("O formato da data de inicio informada esta incoreto.\nTente novamente passando a data no formato xx/xx/xxxx");
             this.setDataInicio(scanner.nextLine());
         }
     }

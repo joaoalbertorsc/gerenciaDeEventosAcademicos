@@ -1,6 +1,7 @@
 package com.gerenciadorDeEventosAcademicos.model;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Atividade {
 
@@ -16,6 +17,7 @@ public class Atividade {
     private String horaFim;
     private ArrayList<Participante> participantesDaAtividade = new ArrayList<Participante>();
     private ArrayList<Palestrante> palestrantesDaAtividade = new ArrayList<Palestrante>();
+    Scanner scanner = new Scanner(System.in);
 
     public Atividade(Evento evento) {
         this.evento = evento;
@@ -94,6 +96,7 @@ public class Atividade {
             this.dataInicio = dataInicio;
         } else {
             System.out.println("O formato da data de inicio informada esta incoreto.\n Tente novamente passando a data no formato xx/xx/xxxx");
+            this.setDataInicio(scanner.nextLine());
         }
     }
 
@@ -106,6 +109,7 @@ public class Atividade {
             this.dataFim = dataFim;
         } else{
             System.out.println("O formato da data de fim informada esta incoreto.\n Tente novamente passando a data no formato xx/xx/xxxx");
+            this.setDataFim(scanner.nextLine());
         }
     }
 
@@ -119,6 +123,7 @@ public class Atividade {
         }
         else {
             System.out.println("O formato da hora de inicio informada esta incoreto.\n Tente novamente passando a hora no formato xx:xx");
+            this.setHoraInicio(scanner.nextLine());
         }
     }
 
@@ -131,7 +136,8 @@ public class Atividade {
             this.horaInicio = horaInicio;
         }
         else {
-            System.out.println("O formato da hora do fim informado esta incoreto.\n Tente novamente passando a hora no formato xx:xx");
+            System.out.println("O formato da hora do fim informado esta incoreto.\nTente novamente passando a hora no formato xx:xx");
+            this.setHoraFim(scanner.nextLine());
         }
     }
 

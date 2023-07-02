@@ -23,7 +23,6 @@ public class Model {
             observers.add(observer);
         }
     }
-
     public void detachObserver(Observer observer) {
         if (observer != null) {
             observers.remove(observer);
@@ -34,59 +33,34 @@ public class Model {
             o.update();
         }
     }
-
     public Usuario autenticarUsuario(String login, String senha) {
         Usuario usuario;
         if (login != null && senha != null) {
             usuario = usuarios.get(login);
             if (usuario != null) {
                 if (login.equals(usuario.getId()) && senha.equals(usuario.getSenha())){
-                    usuarioAutenticado = usuario;
+                    this.usuario = usuario;
                 }
             }
         }
-        return usuarioAutenticado;
+        return this.usuario;
     }
-
     public void deslogarUsuario() {
-        usuarioAutenticado = null;
+        usuario = null;
         MainView mainView = new MainView();
         mainView.initMainView(this);
         notifica();
     }
-
-    public void sair(){
-
-    }
-
-    public void voltarPaginaInicial(){
+    public void voltarPaginaInicial() {
         MainView mainView = new MainView();
         mainView.initMainView(this);
     }
-
-    public Usuario getUsuarioAutenticado() {
-        return usuarioAutenticado;
-    }
-
-    public int getTotalUsuarios() {
-        return usuarios.size();
-    }
-
-    public Usuario getUsuarioSistema(String id) {
-        if (id != null) {
-            Usuario usuario = usuarios.get(id);
-            return usuario;
-        }
-        return null;
-    }
-
     public void setUsuarioSistema(Usuario usuario) {
         if (usuario != null && usuario.getId() != null) {
             usuarios.put(usuario.getId(), usuario);
             notifica();
         }
     }
-
     public Usuario getUsuario() {
         return usuario;
     }
@@ -107,9 +81,6 @@ public class Model {
         this.usuarios = usuarios;
     }
 
-    public void setUsuarioAutenticado(Usuario usuarioAutenticado) {
-        this.usuarioAutenticado = usuarioAutenticado;
-    }
 
     public ArrayList<Participante> getParticipantesLista() {
         return participantesLista;

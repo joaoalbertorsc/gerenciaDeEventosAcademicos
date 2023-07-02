@@ -30,12 +30,12 @@ public class MainView implements Observer{
         String[] opcoes = { "[1] - Fazer Login", "[2] - Fazer Cadastro", "[3] - Sair" };
         while (!finalizar) {
             try{
-                System.out.println("===================================");
-                System.out.println("GERENCIAMENTO DE EVENTOS ACADEMICOS");
-                System.out.println("===================================");
+                System.out.println("===========================================");
+                System.out.println("|   GERENCIAMENTO DE EVENTOS ACADEMICOS   |");
+                System.out.println("===========================================");
                 System.out.println("Selecione uma opcao:");
-                if (model.getUsuarioAutenticado() != null) {
-                    System.out.println("Usuario: " + model.getUsuarioAutenticado().getNome());
+                if (model.getUsuario() != null) {
+                    System.out.println("Usuario: " + model.getUsuario().getNome());
                     opcoes[0] = "[1] - Fazer Logout";
                     opcoes[1] = "[2] - Acessar pagina de eventos";
                 } else {
