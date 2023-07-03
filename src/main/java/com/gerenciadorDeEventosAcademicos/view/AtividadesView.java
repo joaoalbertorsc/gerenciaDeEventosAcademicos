@@ -1,8 +1,6 @@
 package com.gerenciadorDeEventosAcademicos.view;
 import com.gerenciadorDeEventosAcademicos.controller.AtividadesController;
 import com.gerenciadorDeEventosAcademicos.model.*;
-
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class AtividadesView implements Observer{
@@ -12,7 +10,7 @@ public class AtividadesView implements Observer{
     private Atividade atividadeEscolhida;
     private int escolhaUsuario;
 
-    public void initAtividadesView(Model model, Atividade atividadeEscolhida) {
+    public void initAtividadesView(Model model, Atividade atividadeEscolhida) { // iniciando view de atividade
         this.model = model;
         this.atividadeEscolhida = atividadeEscolhida;
         controller = new AtividadesController();
@@ -22,7 +20,7 @@ public class AtividadesView implements Observer{
 
     }
 
-    public void detalhesDaAtividade(){
+    public void detalhesDaAtividade(){ // view da atividade
         Scanner scanner = new Scanner(System.in);
         String[] opcoes = { "[1] - Realizar inscricao na atividade", "[2] - Ver participante(s) inscritos", "[3] - Voltar a pagina inicial", "[4] - Sair do sistema", "index-4","index-5","index-6", "index-7", "index-8"};
         System.out.println("=========================================");
@@ -87,6 +85,23 @@ public class AtividadesView implements Observer{
     public void setEscolhaUsuario(int escolhaUsuario) {
         this.escolhaUsuario = escolhaUsuario;
     }
+
+    public Model getModel() {
+        return model;
+    }
+
+    public void setModel(Model model) {
+        this.model = model;
+    }
+
+    public AtividadesController getController() {
+        return controller;
+    }
+
+    public void setController(AtividadesController controller) {
+        this.controller = controller;
+    }
+
     @Override
     public void update() {
 

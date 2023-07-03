@@ -1,8 +1,6 @@
 package com.gerenciadorDeEventosAcademicos.view;
-
 import com.gerenciadorDeEventosAcademicos.controller.MainViewController;
 import com.gerenciadorDeEventosAcademicos.model.Model;
-
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
@@ -12,12 +10,12 @@ public class MainView implements Observer{
     private MainViewController controller;
     private boolean finalizar = false;
 
-    public void finalizarSistema() {
+    public void finalizarSistema() { // metodo para finalizar o sistema
         System.out.println("Quase finalizando...");
         finalizar = true;
     }
 
-    public void initMainView(Model model) {
+    public void initMainView(Model model) { // iniciando a Main View que e a view inicial do sistema
         this.model = model;
         controller = new MainViewController();
         controller.initMainViewController(model, this);
@@ -55,6 +53,30 @@ public class MainView implements Observer{
             }
         }
         sc.close();
+    }
+
+    public Model getModel() {
+        return model;
+    }
+
+    public void setModel(Model model) {
+        this.model = model;
+    }
+
+    public MainViewController getController() {
+        return controller;
+    }
+
+    public void setController(MainViewController controller) {
+        this.controller = controller;
+    }
+
+    public boolean isFinalizar() {
+        return finalizar;
+    }
+
+    public void setFinalizar(boolean finalizar) {
+        this.finalizar = finalizar;
     }
 
     public void update(){

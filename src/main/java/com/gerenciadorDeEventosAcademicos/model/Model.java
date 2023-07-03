@@ -33,7 +33,7 @@ public class Model {
             o.update();
         }
     }
-    public Usuario autenticarUsuario(String login, String senha) {
+    public Usuario autenticarUsuario(String login, String senha) { // metodo para autenticar o usuario;
         Usuario usuario;
         if (login != null && senha != null) {
             usuario = usuarios.get(login);
@@ -45,13 +45,13 @@ public class Model {
         }
         return this.usuario;
     }
-    public void deslogarUsuario() {
+    public void deslogarUsuario() { // metodo para deslogar e voltar a pagina inicial do sistema;
         usuario = null;
         MainView mainView = new MainView();
         mainView.initMainView(this);
         notifica();
     }
-    public void voltarPaginaInicial() {
+    public void voltarPaginaInicial() { // metodo para voltaar a pagina inicial do sistema;
         MainView mainView = new MainView();
         mainView.initMainView(this);
     }
@@ -95,5 +95,33 @@ public class Model {
 
     public ArrayList<Atividade> getAtividadesCadastrados() {
         return atividadesCadastrados;
+    }
+
+    public Usuario getUsuarioAutenticado() {
+        return usuarioAutenticado;
+    }
+
+    public void setUsuarioAutenticado(Usuario usuarioAutenticado) {
+        this.usuarioAutenticado = usuarioAutenticado;
+    }
+
+    public void setParticipantesLista(ArrayList<Participante> participantesLista) {
+        this.participantesLista = participantesLista;
+    }
+
+    public void setPalestrantesLista(ArrayList<Palestrante> palestrantesLista) {
+        this.palestrantesLista = palestrantesLista;
+    }
+
+    public void setOrganizadoresLista(ArrayList<Organizador> organizadoresLista) {
+        this.organizadoresLista = organizadoresLista;
+    }
+
+    public void setEventosCadastrados(ArrayList<Evento> eventosCadastrados) {
+        this.eventosCadastrados = eventosCadastrados;
+    }
+
+    public void setAtividadesCadastrados(ArrayList<Atividade> atividadesCadastrados) {
+        this.atividadesCadastrados = atividadesCadastrados;
     }
 }

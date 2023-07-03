@@ -4,12 +4,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Frequencia {
-
-    private Evento evento;
     private Atividade atividade;
     private ArrayList<Participante> participantesPresentes;
-
-    public void marcarPresenca(Atividade atividade) {
+    public void marcarPresenca(Atividade atividade) { // metodo para marcar a presenca dos participantes da atividade;
         Scanner sc = new Scanner(System.in);
         this.atividade = atividade;
         System.out.println("[1] - Presente" +
@@ -26,14 +23,12 @@ public class Frequencia {
         }
         sc.close();
     }
-
-    public void verListaPresenca(){
+    public void verListaPresenca(){ // metodo para ver lista de precenca (não ativo nessa versao);
         System.out.println("Lista de presenca:");
         for (Participante participante: participantesPresentes) {
             System.out.println(participante.getNome());
         }
     }
-
     public Atividade getAtividade() {
         return atividade;
     }

@@ -6,25 +6,15 @@ import com.gerenciadorDeEventosAcademicos.view.*;
 import java.util.NoSuchElementException;
 
 public class MainViewController implements Observer {
-
     private Model model;	// Guarda o modelo a ser utilizado
     private MainView view;	// Guarda a view a ser controlada
-
-    /*
-     * Inicialização do controller da view principal
-     */
     public void initMainViewController(Model model, MainView view) {
         this.model = model;  // Guarda o modelo
         this.view = view;	 // Guarda a view
     }
-
-    /*
-     * O controller só implementa o update se for necessário
-     */
     public void update() {
-
     }
-    public void handleEvent(String event) throws NoSuchElementException {
+    public void handleEvent(String event) throws NoSuchElementException { // metodo para decidir para onde o usuario vai de acordo com a entrada apos a main view;
         switch (event) {
             case "1" :
                 if (model.getUsuario() == null) {

@@ -12,8 +12,6 @@ public class PaginaEventosController implements Observer {
 
     private Model model;
     private PaginaEventosView view;
-
-
     public void initPaginaEventosController(Model model, PaginaEventosView view) {
         this.model = model;
         this.view = view;
@@ -21,7 +19,7 @@ public class PaginaEventosController implements Observer {
     }
     public void handleEvent(int escolhaUsuario) throws NullPointerException, IndexOutOfBoundsException{
 
-        switch (escolhaUsuario){
+        switch (escolhaUsuario){ // metodo de definicao para o caminho desejado do usuario a partir da view da pagina de eventos;
             case 1 :
                 Scanner sc = new Scanner(System.in);
                 if (model.getEventosCadastrados().isEmpty()){
@@ -61,7 +59,7 @@ public class PaginaEventosController implements Observer {
                 model.voltarPaginaInicial();
         }
     }
-    public void eventosDisponiveis() throws NullPointerException{
+    public void eventosDisponiveis() throws NullPointerException{ // metodo para exibir os eventos disponiveis, caso existam;
         try {
             System.out.println("Total eventos disponiveis: " + model.getEventosCadastrados().size());
             System.out.println("Lista de eventos:");
@@ -74,12 +72,19 @@ public class PaginaEventosController implements Observer {
             System.out.println("Nenhum evento cadastrado.....");
         }
     }
-    public void escolherEvento(){
-
+    public Model getModel() {
+        return model;
     }
-
+    public void setModel(Model model) {
+        this.model = model;
+    }
+    public PaginaEventosView getView() {
+        return view;
+    }
+    public void setView(PaginaEventosView view) {
+        this.view = view;
+    }
     @Override
     public void update() {
-
     }
 }

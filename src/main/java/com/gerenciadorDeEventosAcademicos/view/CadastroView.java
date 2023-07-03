@@ -17,7 +17,7 @@ public class CadastroView implements Observer{
     private String senha;
     private String email;
 
-    public void initNewUserView(Model model) {
+    public void initNewUserView(Model model) { // iniciando a view de Cadastro do sistema
         this.model = model;
         controller = new CadastroController();
         controller.initCadastroController(model, this);
@@ -25,7 +25,7 @@ public class CadastroView implements Observer{
         cadastrarUsuario();
     }
 
-    public void cadastrarUsuario() {
+    public void cadastrarUsuario() { // view de cadastro do sistema
         Scanner scanner = new Scanner(System.in);
         System.out.println("=========================");
         System.out.println("|   CADASTRAR USUARIO   |");

@@ -59,6 +59,9 @@ public class DetalhesEventoController implements Observer {
                 }
             case 4:
                 model.getEventosCadastrados().remove(evento);
+                System.out.println();
+                System.out.println("Evento excluído com sucesso!");
+                System.out.println();
                 PaginaEventosView view1 = new PaginaEventosView();
                 view1.initPaginaEventosView(model);
             case 5:

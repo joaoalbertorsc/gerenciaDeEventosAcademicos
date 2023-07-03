@@ -8,12 +8,12 @@ import java.util.Scanner;
 public class AtividadesController implements Observer{
     private Model model;
     private AtividadesView view;
-    public void initAtividadesController(Model model, AtividadesView view) {
+    public void initAtividadesController(Model model, AtividadesView view) { // iniciando controller da view atividade;
         this.model = model;
         this.view = view;
         model.attachObserver(this);
     }
-    public void handleEvent(int escolhaUsuario){
+    public void handleEvent(int escolhaUsuario){ // de acordo com a escolha do usuario eh chamada o caso que sera executado
         Scanner scanner = new Scanner(System.in);
         int i = 1;
         switch (escolhaUsuario){
@@ -29,7 +29,6 @@ public class AtividadesController implements Observer{
                         ((Participante) model.getUsuario()).cancelarInscricaoAtividade(view.getAtividadeEscolhida());
                     } else {
                         ((Participante) model.getUsuario()).inscreverseAtividade(view.getAtividadeEscolhida());
-
                     }
                 }
             case 2:
@@ -121,6 +120,18 @@ public class AtividadesController implements Observer{
             case 9:
                 model.deslogarUsuario();
         }
+    }
+    public Model getModel() {
+        return model;
+    }
+    public void setModel(Model model) {
+        this.model = model;
+    }
+    public AtividadesView getView() {
+        return view;
+    }
+    public void setView(AtividadesView view) {
+        this.view = view;
     }
     @Override
     public void update() {

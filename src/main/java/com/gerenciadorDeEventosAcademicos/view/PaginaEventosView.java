@@ -1,8 +1,6 @@
 package com.gerenciadorDeEventosAcademicos.view;
 import com.gerenciadorDeEventosAcademicos.controller.PaginaEventosController;
 import com.gerenciadorDeEventosAcademicos.model.*;
-
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class PaginaEventosView implements Observer{
@@ -12,7 +10,7 @@ public class PaginaEventosView implements Observer{
     private PaginaEventosController controller;
     private int numeroEventoEscolhido;
     private int escolhaUsuario;
-    public void initPaginaEventosView(Model model) {
+    public void initPaginaEventosView(Model model) {  // iniciando a pagina de eventos
         this.model = model;
         controller = new PaginaEventosController();
         controller.initPaginaEventosController(model, this);
@@ -20,7 +18,7 @@ public class PaginaEventosView implements Observer{
         paginaEventos();
     }
 
-    private void paginaEventos() {
+    private void paginaEventos() { // view da pagina de eventos
         Scanner scanner = new Scanner(System.in);
         String[] opcoes = {"[1] - Escolher evento", "[2] - Voltar para a pagina inicial","index 2"};
         System.out.println("======================");
@@ -59,6 +57,30 @@ public class PaginaEventosView implements Observer{
 
     public void setEscolhaUsuario(int escolhaUsuario) {
         this.escolhaUsuario = escolhaUsuario;
+    }
+
+    public Model getModel() {
+        return model;
+    }
+
+    public void setModel(Model model) {
+        this.model = model;
+    }
+
+    public Evento getEvento() {
+        return evento;
+    }
+
+    public void setEvento(Evento evento) {
+        this.evento = evento;
+    }
+
+    public PaginaEventosController getController() {
+        return controller;
+    }
+
+    public void setController(PaginaEventosController controller) {
+        this.controller = controller;
     }
 
     @Override

@@ -12,10 +12,10 @@ public class Organizador extends Palestrante{
         return "Organizador: " + getNome() +
                 "\nEmail: " + getEmail();
     }
-    public void realizarFrequencia(Atividade atividade, Frequencia frequencia){
+    public void realizarFrequencia(Atividade atividade, Frequencia frequencia){ // metodo para o organizador realizar a frequencia (nao ativo nessa versao);
         frequencia.marcarPresenca(atividade);
     }
-    public void gerarCertificado(Frequencia frequencia, Atividade atividade){
+    public void gerarCertificado(Frequencia frequencia, Atividade atividade){ // metodo para gerar certificados para todos os participanttes presentes em uma determinada atividade;
         Certificado certificado = new Certificado(atividade);
         for (Participante participante: frequencia.getParticipantesPresentes()) {
             certificado.emitirCertificado(participante);
@@ -23,7 +23,7 @@ public class Organizador extends Palestrante{
         System.out.println("Certificado(s) gerado(s) com sucesso!");
     }
 
-    public Evento criarEvento(){
+    public Evento criarEvento(){ // metodo para criar evento;
         Evento evento = new Evento();
         eventosCadastrados.add(evento);
         System.out.println("Preencha os dados para a criacao do evento:");
@@ -43,7 +43,7 @@ public class Organizador extends Palestrante{
         return evento;
     }
 
-    public void editarEvento(Evento evento, Model model){
+    public void editarEvento(Evento evento, Model model){ // metodo para editar um evento existente;
         this.evento = evento;
         System.out.println("Qual atributo do evento você deseja editar?");
         System.out.println("[1] - Nome");
@@ -61,7 +61,7 @@ public class Organizador extends Palestrante{
         scanner.close();
     }
 
-    public void handleEvent1(int i, Model model){
+    public void handleEvent1(int i, Model model){ // metodo para de acordo com a escolha do usuario fazer determinada funcao;
         Scanner sc = new Scanner(System.in);
         switch (i){
             case 1:
@@ -114,7 +114,7 @@ public class Organizador extends Palestrante{
         }
     }
 
-    public void editarEndereço(Endereco endereco){
+    public void editarEndereço(Endereco endereco){ // metodo para editar o endereco de um evento existente
         System.out.println("Qual informacao voce deseja alterar?");
         String[] opcoes = {"[1] - Rua", "[2] - Numero", "[3] - Cidade", "[4] - Referencia"};
         System.out.println(opcoes[0]);
@@ -127,7 +127,7 @@ public class Organizador extends Palestrante{
         scanner.close();
     }
 
-    public void handleEvent2(int i, Endereco endereco){
+    public void handleEvent2(int i, Endereco endereco){ // metodo para de acordo com a entrada do usuario, realizar as alteracoes do endereco;
 
         switch (i){
             case 1:
@@ -145,12 +145,8 @@ public class Organizador extends Palestrante{
         }
 
     }
-    public void excluirEvento(Evento evento){
-        eventosCadastrados.remove(evento);
-        System.out.println("Evento " + evento.getNome() + " excluido com sucesso!");
-    }
 
-    public Atividade criarAtividade(){
+    public Atividade criarAtividade(){ // metodo para criar uma atividade;
         Atividade atividade = new Atividade(evento);
         atividadesCadastradas.add(atividade);
         System.out.println("Preencha com os dados da atividade >>>");
@@ -175,34 +171,32 @@ public class Organizador extends Palestrante{
         return atividade;
     }
 
-    public void removerPalestrante(Atividade atividade, Palestrante palestrante){
+    public void removerPalestrante(Atividade atividade, Palestrante palestrante){ // metodo para remover um palestrante de uma atividade;
         atividade.getPalestrantesDaAtividade().remove(palestrante);
         System.out.println();
         System.out.println("Palestrante " + palestrante.getNome() + " removido com sucesso!");
         System.out.println();
     }
 
-    public void editarAtividade(Model model, Atividade atividade){
+    public void excluirEvento(Evento evento){
+        eventosCadastrados.remove(evento);
+        System.out.println();
+        System.out.println("Evento removido com sucesso!");
+        System.out.println();
+    }
+
+    public void editarAtividade(Model model, Atividade atividade){ // metodo para editar uma atividade existente;
         super.editarAtividade(model, atividade);
     }
 
-    public void excluirAtividade(Atividade atividade){
+    public void excluirAtividade(Atividade atividade){ // metodo para excluir uma atividade existente;
         atividadesCadastradas.remove(atividade);
         System.out.println("Atividade " + atividade.getNome() + " excluida com sucesso!");
     }
 
-    public void atribuirPalestrante(Palestrante palestrante, Atividade atividade){
+    public void atribuirPalestrante(Palestrante palestrante, Atividade atividade){ // metodo para atribuir um palestrante a uma atividade existente;
         atividade.addPalestrante(palestrante);
     }
-
-    public void visualizarParticipantes(Evento evento){}
-
-    public void visualizarParticipantes(Atividade atividade, Evento evento){}
-
-    public void visualizarPalestrantes(Evento evento){}
-
-    public void visualizarPalestrantes(Atividade atividade, Evento evento){}
-
     public ArrayList<Evento> getEventos() {
         return eventosCadastrados;
     }
@@ -217,5 +211,29 @@ public class Organizador extends Palestrante{
 
     public void setAtividades(ArrayList<Atividade> atividades) {
         this.atividadesCadastradas = atividades;
+    }
+
+    public Evento getEvento() {
+        return evento;
+    }
+
+    public void setEvento(Evento evento) {
+        this.evento = evento;
+    }
+
+    public ArrayList<Evento> getEventosCadastrados() {
+        return eventosCadastrados;
+    }
+
+    public void setEventosCadastrados(ArrayList<Evento> eventosCadastrados) {
+        this.eventosCadastrados = eventosCadastrados;
+    }
+
+    public ArrayList<Atividade> getAtividadesCadastradas() {
+        return atividadesCadastradas;
+    }
+
+    public void setAtividadesCadastradas(ArrayList<Atividade> atividadesCadastradas) {
+        this.atividadesCadastradas = atividadesCadastradas;
     }
 }

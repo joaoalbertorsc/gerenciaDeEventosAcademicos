@@ -1,22 +1,15 @@
 package com.gerenciadorDeEventosAcademicos.model;
 
 public class Usuario{
-
     private String id;
     private String nome;
     private String email;
     private String senha;
-
     @Override
     public String toString() {
         return "Nome: '" + nome +
                 ", Email: '" + email;
     }
-
-    public void login(){}
-    public void verInfoEvento(Evento evento){}
-    public void verInfoAtividade(Atividade atividade){}
-
     public String getId() {
         return id;
     }

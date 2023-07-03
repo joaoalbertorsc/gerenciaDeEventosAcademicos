@@ -4,8 +4,6 @@ import com.gerenciadorDeEventosAcademicos.model.Atividade;
 import com.gerenciadorDeEventosAcademicos.model.Evento;
 import com.gerenciadorDeEventosAcademicos.model.Model;
 import com.gerenciadorDeEventosAcademicos.model.Organizador;
-
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class DetalhesEventoView implements Observer{
@@ -14,7 +12,7 @@ public class DetalhesEventoView implements Observer{
     private DetalhesEventoController controller;
     private Evento eventoEscolhido;
     private int escolhaUsuario;
-    public void initDetalhesEventoView(Model model, Evento eventoEscolhido) {
+    public void initDetalhesEventoView(Model model, Evento eventoEscolhido) { // iniciando a tela de detalhes do evento
         this.model = model;
         this.eventoEscolhido = eventoEscolhido;
         controller = new DetalhesEventoController();
@@ -23,7 +21,7 @@ public class DetalhesEventoView implements Observer{
         detalhesDoEvento();
 
     }
-    public void detalhesDoEvento(){
+    public void detalhesDoEvento(){ // view detalhes do evento
         Scanner scanner = new Scanner(System.in);
         String[] opcoes = {"[1] - Escolher atividade", "[2] - Voltar a pagina inicial", "[3] - Sair", "index 3", "index 4", "index 5"};
         System.out.println("=================================");
@@ -79,6 +77,23 @@ public class DetalhesEventoView implements Observer{
     public void setEscolhaUsuario(int escolhaUsuario) {
         this.escolhaUsuario = escolhaUsuario;
     }
+
+    public Model getModel() {
+        return model;
+    }
+
+    public void setModel(Model model) {
+        this.model = model;
+    }
+
+    public DetalhesEventoController getController() {
+        return controller;
+    }
+
+    public void setController(DetalhesEventoController controller) {
+        this.controller = controller;
+    }
+
     @Override
     public void update() {
 

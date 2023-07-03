@@ -17,9 +17,13 @@ public class Palestrante extends Participante {
                 '}';
     }
 
-    public void inscreverseAtividade(Atividade atividade){}
-    public void cancelarInscricaoAtividade(Atividade atividade){}
-    public void editarAtividade(Model model, Atividade atividade){
+    public void inscreverseAtividade(Atividade atividade){ // herdando metodo do participante, de se inscrever;
+        super.inscreverseAtividade(atividade);
+    }
+    public void cancelarInscricaoAtividade(Atividade atividade){ // herdando metodo do participante, de cancelar inscricao de uma atividade;
+        super.cancelarInscricaoAtividade(atividade);
+    }
+    public void editarAtividade(Model model, Atividade atividade){ // metodo para o palestrante editar uma atividade;
         this.atividade = atividade;
         System.out.println("Qual atributo da atividade voce deseja editar?");
         System.out.println("----------------------------------------------");
@@ -37,7 +41,7 @@ public class Palestrante extends Participante {
         scanner.close();
     }
 
-    public void handleEvent(int i, Model model, Atividade atividade){
+    public void handleEvent(int i, Model model, Atividade atividade){ // metodo para dependendo da escolha do usuario fazer determinada funcao;
         switch (i){
             case 1:
                 System.out.println("Defina o novo nome desejado:");
@@ -81,5 +85,15 @@ public class Palestrante extends Participante {
 
     public void setAtividades(ArrayList<Atividade> atividades) {
         this.atividades = atividades;
+    }
+
+    @Override
+    public Atividade getAtividade() {
+        return atividade;
+    }
+
+    @Override
+    public void setAtividade(Atividade atividade) {
+        this.atividade = atividade;
     }
 }
