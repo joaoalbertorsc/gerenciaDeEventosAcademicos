@@ -88,6 +88,16 @@ public class Model {
     public ArrayList<Palestrante> getPalestrantesLista() {
         return palestrantesLista;
     }
+    public void palestrantesCadastrados() {
+        int i = 0;
+        System.out.println();
+        System.out.println("Palestrantes cadastrados:");
+        for (Palestrante palestrante : getPalestrantesLista()) {
+            System.out.println("ID: " + i + " - " + "Nome: " + palestrante.getNome());
+            i++;
+        }
+        System.out.println();
+    }
 
     public ArrayList<Organizador> getOrganizadoresLista() {
         return organizadoresLista;

@@ -6,15 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5e841b94-0b94-46ab-8e0f-834a2b1cbed8" name="Changes" comment="Atualização final v1.0 &gt;&gt;&gt;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/model/Organizador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/model/Organizador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/model/Palestrante.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/model/Palestrante.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/model/Participante.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/model/Participante.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/view/AtividadesView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/view/AtividadesView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/view/CadastroView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/view/CadastroView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/view/DetalhesEventoView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/view/DetalhesEventoView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/view/LoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/view/LoginView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/view/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/view/MainView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/view/PaginaEventosView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/view/PaginaEventosView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -205,7 +196,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688334265315</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Atualização final v1.0 &gt;&gt;&gt;">
+      <created>1688348784664</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1688348784664</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

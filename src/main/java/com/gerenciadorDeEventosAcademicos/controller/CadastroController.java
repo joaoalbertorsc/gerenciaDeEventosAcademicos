@@ -29,25 +29,34 @@ public class CadastroController implements Observer {
     public void tipoUsuario(int tipoUsuario){ // metodo para definir o tipo de conta que o usuario deseja criar;
         switch (tipoUsuario){
             case 1:
-                Usuario usuario1 = new Participante();
-                Participante participante = (Participante) usuario1;
-                model.setUsuario(participante);
-                model.getParticipantesLista().add(participante);
+                tipoParticipante();
                 break;
             case 2:
-                Usuario usuario2 = new Palestrante();
-                Palestrante palestrante = (Palestrante) usuario2;
-                model.setUsuario(palestrante);
-                model.getPalestrantesLista().add(palestrante);
+                tipoPalestrante();
                 break;
 
             case 3:
-                Usuario usuario3 = new Organizador();
-                Organizador organizador = (Organizador) usuario3;
-                model.setUsuario(organizador);
-                model.getOrganizadoresLista().add(organizador);
+                tipoOrganizador();
                 break;
         }
+    }
+    public void tipoParticipante(){
+        Usuario usuario = new Participante();
+        Participante participante = (Participante) usuario;
+        model.setUsuario(participante);
+        model.getParticipantesLista().add(participante);
+    }
+    public void tipoPalestrante(){
+        Usuario usuario = new Palestrante();
+        Palestrante palestrante = (Palestrante) usuario;
+        model.setUsuario(palestrante);
+        model.getPalestrantesLista().add(palestrante);
+    }
+    public void tipoOrganizador(){
+        Usuario usuario = new Organizador();
+        Organizador organizador = (Organizador) usuario;
+        model.setUsuario(organizador);
+        model.getOrganizadoresLista().add(organizador);
     }
     public Model getModel() {
         return model;

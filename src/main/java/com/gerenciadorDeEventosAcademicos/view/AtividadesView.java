@@ -9,6 +9,7 @@ public class AtividadesView implements Observer{
     private AtividadesController controller;
     private Atividade atividadeEscolhida;
     private int escolhaUsuario;
+    private Scanner scanner = new Scanner(System.in);
 
     public void initAtividadesView(Model model, Atividade atividadeEscolhida) { // iniciando view de atividade
         this.model = model;
@@ -21,7 +22,6 @@ public class AtividadesView implements Observer{
     }
 
     public void detalhesDaAtividade(){ // view da atividade
-        Scanner scanner = new Scanner(System.in);
         String[] opcoes = { "[1] - Realizar inscricao na atividade", "[2] - Ver participante(s) inscritos", "[3] - Voltar a pagina inicial", "[4] - Sair do sistema", "index-4","index-5","index-6", "index-7", "index-8"};
         System.out.println("=========================================");
         System.out.println("| Detalhes sobre a atividade: " + atividadeEscolhida.getNome() + " |");
@@ -73,6 +73,38 @@ public class AtividadesView implements Observer{
     public void inscricaoRealizada(){
         System.out.println("Inscricao realizada com sucesso!");
     }
+    public void nenhumPalestranteCadastrado(){
+        System.out.println();
+        System.out.println("Nenhum palestrante cadastrado...");
+        System.out.println();
+    }
+    public void atribuirPalestrante(Organizador organizador){
+        model.palestrantesCadastrados();
+        System.out.println("Digite o ID correspondente ao palestrante que você deseja atribuir a atividade:" + getAtividadeEscolhida().getNome() + ":");
+        int id = scanner.nextInt();
+        organizador.atribuirPalestrante(model.getPalestrantesLista().get(id-1), getAtividadeEscolhida());
+        System.out.println();
+        System.out.println("Palestrante " + model.getPalestrantesLista().get(id-1).getNome() + " atribuido com sucesso!");
+        System.out.println();
+    }
+    public void palestrantesAtribuidos(){
+        int i = 0;
+        System.out.println();
+        System.out.println("Palestrantes atribuidos:");
+        for (Palestrante palestrante : getAtividadeEscolhida().getPalestrantesDaAtividade()) {
+            System.out.println("ID: " + i + " - " + "Nome: " + palestrante.getNome());
+            i++;
+        }
+        System.out.println();
+    }
+    public void removerPalestrante(){
+        System.out.println("Digite o ID correspondente ao palestrante que voce deseja remover da atividade:" + getAtividadeEscolhida().getNome() + ":");
+    }
+    public void participantesInscritos(){
+        System.out.println("Participantes inscritos:");
+        getAtividadeEscolhida().getParticipantesDaAtividade().forEach(participante -> System.out.println("Participante : " + participante.getNome()));
+    }
+
     public Atividade getAtividadeEscolhida() {
         return atividadeEscolhida;
     }
@@ -85,7 +117,6 @@ public class AtividadesView implements Observer{
     public void setEscolhaUsuario(int escolhaUsuario) {
         this.escolhaUsuario = escolhaUsuario;
     }
-
     public Model getModel() {
         return model;
     }
