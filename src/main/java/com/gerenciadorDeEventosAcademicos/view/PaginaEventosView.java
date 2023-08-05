@@ -43,6 +43,11 @@ public class PaginaEventosView implements Observer{
         numeroEventoEscolhido = scanner.nextInt();
         model.detachObserver(this);
     }
+    public void exibirMensagem(String mensagem){
+        System.out.println();
+        System.out.println(mensagem);
+        System.out.println();
+    }
     public int getNumeroEventoEscolhido() {
         return numeroEventoEscolhido;
     }

@@ -69,39 +69,32 @@ public class AtividadesView implements Observer{
         model.detachObserver(this);
 
     }
-
+    public void exibirMensagem(String mensagem){
+        System.out.println();
+        System.out.println(mensagem);
+        System.out.println();
+    }
     public void inscricaoRealizada(){
         System.out.println("Inscricao realizada com sucesso!");
     }
-    public void nenhumPalestranteCadastrado(){
-        System.out.println();
-        System.out.println("Nenhum palestrante cadastrado...");
-        System.out.println();
-    }
     public void atribuirPalestrante(Organizador organizador){
         model.palestrantesCadastrados();
-        System.out.println("Digite o ID correspondente ao palestrante que você deseja atribuir a atividade:" + getAtividadeEscolhida().getNome() + ":");
+        exibirMensagem("Digite o ID correspondente ao palestrante que você deseja atribuir a atividade:" + getAtividadeEscolhida().getNome() + ":");
         int id = scanner.nextInt();
-        organizador.atribuirPalestrante(model.getPalestrantesLista().get(id-1), getAtividadeEscolhida());
-        System.out.println();
-        System.out.println("Palestrante " + model.getPalestrantesLista().get(id-1).getNome() + " atribuido com sucesso!");
-        System.out.println();
+        controller.atribuirPalestrante(organizador, id);
+        exibirMensagem("Palestrante " + model.getPalestrantesLista().get(id-1).getNome() + " atribuido com sucesso!");
     }
     public void palestrantesAtribuidos(){
         int i = 0;
-        System.out.println();
-        System.out.println("Palestrantes atribuidos:");
+        exibirMensagem("Palestrantes atribuidos:");
         for (Palestrante palestrante : getAtividadeEscolhida().getPalestrantesDaAtividade()) {
             System.out.println("ID: " + i + " - " + "Nome: " + palestrante.getNome());
             i++;
         }
         System.out.println();
     }
-    public void removerPalestrante(){
-        System.out.println("Digite o ID correspondente ao palestrante que voce deseja remover da atividade:" + getAtividadeEscolhida().getNome() + ":");
-    }
     public void participantesInscritos(){
-        System.out.println("Participantes inscritos:");
+        exibirMensagem("Participantes inscritos:");
         getAtividadeEscolhida().getParticipantesDaAtividade().forEach(participante -> System.out.println("Participante : " + participante.getNome()));
     }
 

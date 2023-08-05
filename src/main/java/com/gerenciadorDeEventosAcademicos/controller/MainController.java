@@ -5,7 +5,7 @@ import com.gerenciadorDeEventosAcademicos.view.*;
 
 import java.util.NoSuchElementException;
 
-public class MainViewController implements Observer {
+public class MainController implements Observer {
     private Model model;	// Guarda o modelo a ser utilizado
     private MainView view;	// Guarda a view a ser controlada
     public void initMainViewController(Model model, MainView view) {

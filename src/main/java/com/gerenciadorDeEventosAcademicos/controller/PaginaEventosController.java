@@ -6,6 +6,9 @@ import com.gerenciadorDeEventosAcademicos.view.DetalhesEventoView;
 import com.gerenciadorDeEventosAcademicos.view.MainView;
 import com.gerenciadorDeEventosAcademicos.view.Observer;
 import com.gerenciadorDeEventosAcademicos.view.PaginaEventosView;
+import com.sun.org.apache.xpath.internal.operations.Mod;
+
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class PaginaEventosController implements Observer {
@@ -23,24 +26,20 @@ public class PaginaEventosController implements Observer {
             case 1 :
                 Scanner sc = new Scanner(System.in);
                 if (model.getEventosCadastrados().isEmpty()){
-                    System.out.println("Nenhum evento cadastrado...");
-                    MainView view1 = new MainView();
-                    view1.initMainView(model);
+                    view.exibirMensagem("Nenhum evento cadastrado...");
+                    chamarMainView(model);
                 } else {
                     eventosDisponiveis();
-                    System.out.println("Digite o numero do evento desejado: ");
+                    view.exibirMensagem("Digite o numero do evento desejado: ");
                     int numEvento;
                     numEvento = sc.nextInt();
                     numEvento-=1;
                     try{
                         Evento eventoEscolhido = model.getEventosCadastrados().get(numEvento);
-                        DetalhesEventoView view1 = new DetalhesEventoView();
-                        view1.initDetalhesEventoView(model, eventoEscolhido);
+                        chamarDetalhesDoEventoView(model, eventoEscolhido);
                     } catch (NullPointerException | IndexOutOfBoundsException e){
-                        System.out.println("ID invalido.");
-                        System.out.println("Confira o numero e tente novamente.");
-                        PaginaEventosView pagina = new PaginaEventosView();
-                        pagina.initPaginaEventosView(model);
+                        view.exibirMensagem("ID invalido.\nConfira o numero e tente novamente.");
+                        chamarPaginaEventosView(model);
                     }
                 }
             case 2:
@@ -49,8 +48,7 @@ public class PaginaEventosController implements Observer {
                     Evento novoEvento = organizador.criarEvento();
                     model.getEventosCadastrados().add(novoEvento);
                     novoEvento.setOrganizador((Organizador) model.getUsuario());
-                    PaginaEventosView pagina1 = new PaginaEventosView();
-                    pagina1.initPaginaEventosView(model);
+                    chamarPaginaEventosView(model);
                 } else {
                     model.voltarPaginaInicial();
                 }
@@ -59,17 +57,29 @@ public class PaginaEventosController implements Observer {
                 model.voltarPaginaInicial();
         }
     }
+    public void chamarPaginaEventosView(Model model){
+        PaginaEventosView pagina = new PaginaEventosView();
+        pagina.initPaginaEventosView(model);
+    }
+    public void chamarMainView(Model model){
+        MainView view = new MainView();
+        view.initMainView(model);
+    }
+    public void chamarDetalhesDoEventoView(Model model, Evento eventoEscolhido){
+        DetalhesEventoView view = new DetalhesEventoView();
+        view.initDetalhesEventoView(model, eventoEscolhido);
+    }
     public void eventosDisponiveis() throws NullPointerException{ // metodo para exibir os eventos disponiveis, caso existam;
         try {
-            System.out.println("Total eventos disponiveis: " + model.getEventosCadastrados().size());
-            System.out.println("Lista de eventos:");
+            view.exibirMensagem("Total eventos disponiveis: " + model.getEventosCadastrados().size());
+            view.exibirMensagem("Lista de eventos:");
             int i = 1;
             for (Evento evento: model.getEventosCadastrados()) {
-                System.out.println(i + " >>> " + evento.getNome());
+                view.exibirMensagem(i + " >>> " + evento.getNome());
                 i++;
             }
         } catch (NullPointerException exception){
-            System.out.println("Nenhum evento cadastrado.....");
+            view.exibirMensagem("Nenhum evento cadastrado.....");
         }
     }
     public Model getModel() {

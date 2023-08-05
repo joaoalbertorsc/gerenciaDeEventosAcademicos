@@ -33,9 +33,9 @@ public class LoginView implements Observer{
         controller.handleEvent("OK");
         model.detachObserver(this);
     }
-    public void exibeMSG(String msg) { // Exibir menagem de erro ou sucesso dependendo do resultado do login
+    public void exibirMensagem(String mensagem) { // Exibir menagem de erro ou sucesso dependendo do resultado do login
         System.out.println();
-        System.out.println(msg);
+        System.out.println(mensagem);
         System.out.println();
     }
     public String getLogin() {

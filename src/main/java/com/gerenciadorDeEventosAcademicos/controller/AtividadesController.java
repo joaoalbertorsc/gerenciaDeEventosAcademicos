@@ -2,6 +2,7 @@ package com.gerenciadorDeEventosAcademicos.controller;
 import com.gerenciadorDeEventosAcademicos.model.*;
 import com.gerenciadorDeEventosAcademicos.view.AtividadesView;
 import com.gerenciadorDeEventosAcademicos.view.Observer;
+import com.sun.org.apache.xpath.internal.operations.Or;
 
 import java.util.Scanner;
 
@@ -34,27 +35,22 @@ public class AtividadesController implements Observer{
                 }
             case 2:
                 if (model.getUsuario() instanceof Organizador){
-
                     if (model.getPalestrantesLista().isEmpty()){
-                        view.nenhumPalestranteCadastrado();
-                        AtividadesView view1 = new AtividadesView();
-                        view1.initAtividadesView(model, view.getAtividadeEscolhida());
+                        view.exibirMensagem("Nenhum palestrante cadastrado...");
+                        chamarAtividadesView(model, view);
                     } else {
                         Organizador organizador = (Organizador) model.getUsuario();
                         view.atribuirPalestrante(organizador);
-                        AtividadesView view1 = new AtividadesView();
-                        view1.initAtividadesView(model, view.getAtividadeEscolhida());
+                        chamarAtividadesView(model, view);
                     }
                 } else{
                     view.participantesInscritos();
-                    AtividadesView view1 = new AtividadesView();
-                    view1.initAtividadesView(model, view.getAtividadeEscolhida());
+                    chamarAtividadesView(model, view);
                 }
             case 3:
                 if (model.getUsuario() instanceof Organizador) {
                     removerPalestrante();
-                    AtividadesView view1 = new AtividadesView();
-                    view1.initAtividadesView(model, view.getAtividadeEscolhida());
+                    chamarAtividadesView(model, view);
                 } else {
                     model.voltarPaginaInicial();
                 }
@@ -65,24 +61,20 @@ public class AtividadesController implements Observer{
 //                    Organizador organizador = (Organizador) model.getUsuario();
 //                    organizador.realizarFrequencia(view.getAtividadeEscolhida(), frequencia);
 //                    organizador.gerarCertificado(frequencia, view.getAtividadeEscolhida());
-                    AtividadesView view1 = new AtividadesView();
-                    view1.initAtividadesView(model, view.getAtividadeEscolhida());
+                    chamarAtividadesView(model, view);
                 } else {
                     model.deslogarUsuario();
                 }
             case 5:
                 view.participantesInscritos();
-                AtividadesView view1 = new AtividadesView();
-                view1.initAtividadesView(model, view.getAtividadeEscolhida());
+                chamarAtividadesView(model, view);
             case 6:
                 view.palestrantesAtribuidos();
-                AtividadesView view2 = new AtividadesView();
-                view2.initAtividadesView(model, view.getAtividadeEscolhida());
+                chamarAtividadesView(model, view);
             case 7:
                 Organizador organizador = (Organizador) model.getUsuario();
                 organizador.excluirAtividade(view.getAtividadeEscolhida());
-                AtividadesView view3 = new AtividadesView();
-                view3.initAtividadesView(model, view.getAtividadeEscolhida());
+                chamarAtividadesView(model, view);
             case 8:
                 model.voltarPaginaInicial();;
             case 9:
@@ -91,10 +83,18 @@ public class AtividadesController implements Observer{
     }
     public void removerPalestrante(){
         view.palestrantesAtribuidos();
-        view.removerPalestrante();
+        view.exibirMensagem("Digite o ID correspondente ao palestrante que voce deseja remover da atividade:" + view.getAtividadeEscolhida().getNome() + ":");
         Organizador organizador = (Organizador) model.getUsuario();
         int id = scanner.nextInt();
         organizador.removerPalestrante(view.getAtividadeEscolhida(), model.getPalestrantesLista().get(id - 1));
+    }
+    public void atribuirPalestrante(Organizador organizador, int id){
+        organizador.atribuirPalestrante(model.getPalestrantesLista().get(id-1), view.getAtividadeEscolhida());
+
+    }
+    public void chamarAtividadesView(Model model, AtividadesView view){
+        AtividadesView view1 = new AtividadesView();
+        view1.initAtividadesView(model, view.getAtividadeEscolhida());
     }
     public Model getModel() {
         return model;

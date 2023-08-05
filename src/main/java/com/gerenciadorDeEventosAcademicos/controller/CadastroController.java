@@ -34,7 +34,6 @@ public class CadastroController implements Observer {
             case 2:
                 tipoPalestrante();
                 break;
-
             case 3:
                 tipoOrganizador();
                 break;

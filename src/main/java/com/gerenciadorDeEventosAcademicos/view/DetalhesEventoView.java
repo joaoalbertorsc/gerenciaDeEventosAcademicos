@@ -65,6 +65,24 @@ public class DetalhesEventoView implements Observer{
         controller.handleEvent(escolhaUsuario, eventoEscolhido);
         model.detachObserver(this);
     }
+    public void exibirMensagem(String mensagem) {
+        System.out.println();
+        System.out.println(mensagem);
+        System.out.println();
+    }
+    public void totalAtividadesDisponiveis() throws NullPointerException{
+        int i = 1;
+        try {
+            exibirMensagem("Total atividades disponiveis: " + model.getAtividadesCadastrados().size());
+            exibirMensagem("Lista de atividades:");
+            for (Atividade atividade: model.getAtividadesCadastrados()) {
+                System.out.println(i + " >>> " + atividade.getNome() + " ID: " + atividade.getId());
+                i++;
+            }
+        } catch (NullPointerException exception){
+            exibirMensagem("Nenhuma atividade cadastrada.....");
+        }
+    }
     public Evento getEventoEscolhido() {
         return eventoEscolhido;
     }

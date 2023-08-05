@@ -1,7 +1,5 @@
 package com.gerenciadorDeEventosAcademicos.model;
 
-import com.sun.org.apache.bcel.internal.generic.PUSH;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
