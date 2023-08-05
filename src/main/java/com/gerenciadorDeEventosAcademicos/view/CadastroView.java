@@ -49,6 +49,11 @@ public class CadastroView implements Observer{
         controller.handleEvent("OK");
         model.detachObserver(this);
     }
+    public void exibirMensagem(String mensagem){
+        System.out.println();
+        System.out.println(mensagem);
+        System.out.println();
+    }
 
     public Model getModel() {
         return model;

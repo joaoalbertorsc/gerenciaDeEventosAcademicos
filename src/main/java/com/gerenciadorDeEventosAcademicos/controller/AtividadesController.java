@@ -2,7 +2,6 @@ package com.gerenciadorDeEventosAcademicos.controller;
 import com.gerenciadorDeEventosAcademicos.model.*;
 import com.gerenciadorDeEventosAcademicos.view.AtividadesView;
 import com.gerenciadorDeEventosAcademicos.view.Observer;
-import com.sun.org.apache.xpath.internal.operations.Or;
 
 import java.util.Scanner;
 

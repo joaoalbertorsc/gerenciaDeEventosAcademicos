@@ -54,7 +54,11 @@ public class MainView implements Observer{
         }
         sc.close();
     }
-
+    public void exibirMensagem(String mensagem){
+        System.out.println();
+        System.out.println(mensagem);
+        System.out.println();
+    }
     public Model getModel() {
         return model;
     }

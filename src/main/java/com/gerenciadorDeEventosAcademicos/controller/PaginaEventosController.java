@@ -6,9 +6,7 @@ import com.gerenciadorDeEventosAcademicos.view.DetalhesEventoView;
 import com.gerenciadorDeEventosAcademicos.view.MainView;
 import com.gerenciadorDeEventosAcademicos.view.Observer;
 import com.gerenciadorDeEventosAcademicos.view.PaginaEventosView;
-import com.sun.org.apache.xpath.internal.operations.Mod;
 
-import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class PaginaEventosController implements Observer {
