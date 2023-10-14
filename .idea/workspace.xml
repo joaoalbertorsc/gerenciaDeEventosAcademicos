@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e841b94-0b94-46ab-8e0f-834a2b1cbed8" name="Changes" comment="Atualização &gt;&gt;&gt;">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/controller/DetalhesEventoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/controller/DetalhesEventoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/model/Organizador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/model/Organizador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/view/AtividadesView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/view/AtividadesView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/view/DetalhesEventoView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/view/DetalhesEventoView.java" afterDir="false" />
-    </list>
+    <list default="true" id="5e841b94-0b94-46ab-8e0f-834a2b1cbed8" name="Changes" comment="In progress &gt;&gt;&gt;" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -179,7 +173,49 @@
       <option name="project" value="LOCAL" />
       <updated>1688315579249</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Atualização &gt;&gt;&gt;">
+      <created>1688319731882</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1688319731882</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Atualização &gt;&gt;&gt;">
+      <created>1688320322527</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1688320322527</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Atualização final v1.0 &gt;&gt;&gt;">
+      <created>1688334265315</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1688334265315</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Atualização final v1.0 &gt;&gt;&gt;">
+      <created>1688348784664</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1688348784664</updated>
+    </task>
+    <task id="LOCAL-00015" summary="In progress &gt;&gt;&gt;">
+      <created>1690595921658</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1690595921658</updated>
+    </task>
+    <task id="LOCAL-00016" summary="In progress &gt;&gt;&gt;">
+      <created>1691198170011</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1691198170011</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -193,7 +229,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/main" />
+                        <option value="main" />
                       </list>
                     </value>
                   </entry>
@@ -215,52 +251,11 @@
     <MESSAGE value="Atualizando metodos dos models e atualizando views do sistema &gt;&gt;&gt;" />
     <MESSAGE value="Atualização de leves &gt;&gt;&gt;" />
     <MESSAGE value="Atualização &gt;&gt;&gt;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Atualização &gt;&gt;&gt;" />
+    <MESSAGE value="Atualização final v1.0 &gt;&gt;&gt;" />
+    <MESSAGE value="In progress &gt;&gt;&gt;" />
+    <option name="LAST_COMMIT_MESSAGE" value="In progress &gt;&gt;&gt;" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/view/PaginaEventosView.java</url>
-          <line>30</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/view/PaginaEventosView.java</url>
-          <line>42</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/view/PaginaEventosView.java</url>
-          <line>29</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/view/PaginaEventosView.java</url>
-          <line>36</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/controller/PaginaEventosController.java</url>
-          <line>66</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/controller/PaginaEventosController.java</url>
-          <line>58</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/controller/PaginaEventosController.java</url>
-          <line>56</line>
-          <properties class="com.gerenciadorDeEventosAcademicos.controller.PaginaEventosController" method="eventosDisponiveis">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="com.gerenciadorDeEventosAcademicos.model.Model" memberName="eventosCadastrados" />

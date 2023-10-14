@@ -1,9 +1,7 @@
 package com.gerenciadorDeEventosAcademicos.view;
 
 import com.gerenciadorDeEventosAcademicos.controller.CadastroController;
-import com.gerenciadorDeEventosAcademicos.controller.LoginController;
 import com.gerenciadorDeEventosAcademicos.model.Model;
-import com.gerenciadorDeEventosAcademicos.model.Participante;
 import com.gerenciadorDeEventosAcademicos.model.Usuario;
 
 import java.util.Scanner;
@@ -19,7 +17,7 @@ public class CadastroView implements Observer{
     private String senha;
     private String email;
 
-    public void initNewUserView(Model model) {
+    public void initNewUserView(Model model) { // iniciando a view de Cadastro do sistema
         this.model = model;
         controller = new CadastroController();
         controller.initCadastroController(model, this);
@@ -27,11 +25,11 @@ public class CadastroView implements Observer{
         cadastrarUsuario();
     }
 
-    public void cadastrarUsuario() {
+    public void cadastrarUsuario() { // view de cadastro do sistema
         Scanner scanner = new Scanner(System.in);
-        System.out.println("======================");
-        System.out.println("CADASTRAR USUARIO");
-        System.out.println("======================");
+        System.out.println("=========================");
+        System.out.println("|   CADASTRAR USUARIO   |");
+        System.out.println("=========================");
         System.out.println("Qual tipo de conta deseja criar? " +
                 "\n[1] Participante;" +
                 "\n[2] Palestrante;" +
@@ -39,7 +37,7 @@ public class CadastroView implements Observer{
         System.out.println("Digite o numero correspondente: ");
         tipoUsuario = scanner.nextInt();
         scanner.nextLine();
-        System.out.println("Insira os dados para a realização do cadastro: ");
+        System.out.println("Insira os dados para a realizacao do cadastro: ");
         System.out.println("Digite seu nome: ");
         nome = scanner.nextLine();
         System.out.println("Defina seu email: ");
@@ -50,6 +48,11 @@ public class CadastroView implements Observer{
         senha = scanner.nextLine();
         controller.handleEvent("OK");
         model.detachObserver(this);
+    }
+    public void exibirMensagem(String mensagem){
+        System.out.println();
+        System.out.println(mensagem);
+        System.out.println();
     }
 
     public Model getModel() {

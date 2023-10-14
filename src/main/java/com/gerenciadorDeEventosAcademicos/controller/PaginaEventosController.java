@@ -3,16 +3,16 @@ import com.gerenciadorDeEventosAcademicos.model.Evento;
 import com.gerenciadorDeEventosAcademicos.model.Model;
 import com.gerenciadorDeEventosAcademicos.model.Organizador;
 import com.gerenciadorDeEventosAcademicos.view.DetalhesEventoView;
+import com.gerenciadorDeEventosAcademicos.view.MainView;
 import com.gerenciadorDeEventosAcademicos.view.Observer;
 import com.gerenciadorDeEventosAcademicos.view.PaginaEventosView;
+
 import java.util.Scanner;
 
 public class PaginaEventosController implements Observer {
 
     private Model model;
     private PaginaEventosView view;
-
-
     public void initPaginaEventosController(Model model, PaginaEventosView view) {
         this.model = model;
         this.view = view;
@@ -20,32 +20,33 @@ public class PaginaEventosController implements Observer {
     }
     public void handleEvent(int escolhaUsuario) throws NullPointerException, IndexOutOfBoundsException{
 
-        switch (escolhaUsuario){
+        switch (escolhaUsuario){ // metodo de definicao para o caminho desejado do usuario a partir da view da pagina de eventos;
             case 1 :
                 Scanner sc = new Scanner(System.in);
-                eventosDisponiveis();
-                System.out.println("Digite o numero do evento desejado: ");
-                int numEvento;
-                numEvento = sc.nextInt();
-                numEvento-=1;
-                try{
-                    Evento eventoEscolhido = model.getEventosCadastrados().get(numEvento);
-                    DetalhesEventoView view1 = new DetalhesEventoView();
-                    view1.initDetalhesEventoView(model, eventoEscolhido);
-                } catch (NullPointerException | IndexOutOfBoundsException e){
-                    System.out.println("ID invalido.");
-                    System.out.println("Confira o numero e tente novamente.");
-                    PaginaEventosView pagina = new PaginaEventosView();
-                    pagina.initPaginaEventosView(model);
+                if (model.getEventosCadastrados().isEmpty()){
+                    view.exibirMensagem("Nenhum evento cadastrado...");
+                    chamarMainView(model);
+                } else {
+                    eventosDisponiveis();
+                    view.exibirMensagem("Digite o numero do evento desejado: ");
+                    int numEvento;
+                    numEvento = sc.nextInt();
+                    numEvento-=1;
+                    try{
+                        Evento eventoEscolhido = model.getEventosCadastrados().get(numEvento);
+                        chamarDetalhesDoEventoView(model, eventoEscolhido);
+                    } catch (NullPointerException | IndexOutOfBoundsException e){
+                        view.exibirMensagem("ID invalido.\nConfira o numero e tente novamente.");
+                        chamarPaginaEventosView(model);
                     }
+                }
             case 2:
                 if (model.getUsuario() instanceof Organizador){
                     Organizador organizador = (Organizador) model.getUsuario();
                     Evento novoEvento = organizador.criarEvento();
                     model.getEventosCadastrados().add(novoEvento);
                     novoEvento.setOrganizador((Organizador) model.getUsuario());
-                    PaginaEventosView pagina1 = new PaginaEventosView();
-                    pagina1.initPaginaEventosView(model);
+                    chamarPaginaEventosView(model);
                 } else {
                     model.voltarPaginaInicial();
                 }
@@ -54,25 +55,44 @@ public class PaginaEventosController implements Observer {
                 model.voltarPaginaInicial();
         }
     }
-    public void eventosDisponiveis() throws NullPointerException{
+    public void chamarPaginaEventosView(Model model){
+        PaginaEventosView pagina = new PaginaEventosView();
+        pagina.initPaginaEventosView(model);
+    }
+    public void chamarMainView(Model model){
+        MainView view = new MainView();
+        view.initMainView(model);
+    }
+    public void chamarDetalhesDoEventoView(Model model, Evento eventoEscolhido){
+        DetalhesEventoView view = new DetalhesEventoView();
+        view.initDetalhesEventoView(model, eventoEscolhido);
+    }
+    public void eventosDisponiveis() throws NullPointerException{ // metodo para exibir os eventos disponiveis, caso existam;
         try {
-            System.out.println("Total eventos disponiveis: " + model.getEventosCadastrados().size());
-            System.out.println("Lista de eventos:");
+            view.exibirMensagem("Total eventos disponiveis: " + model.getEventosCadastrados().size());
+            view.exibirMensagem("Lista de eventos:");
             int i = 1;
             for (Evento evento: model.getEventosCadastrados()) {
-                System.out.println(i + " >>> " + evento.getNome());
+                view.exibirMensagem(i + " >>> " + evento.getNome());
                 i++;
             }
         } catch (NullPointerException exception){
-            System.out.println("Nenhum evento cadastrado.....");
+            view.exibirMensagem("Nenhum evento cadastrado.....");
         }
     }
-    public void escolherEvento(){
-
+    public Model getModel() {
+        return model;
     }
-
+    public void setModel(Model model) {
+        this.model = model;
+    }
+    public PaginaEventosView getView() {
+        return view;
+    }
+    public void setView(PaginaEventosView view) {
+        this.view = view;
+    }
     @Override
     public void update() {
-
     }
 }

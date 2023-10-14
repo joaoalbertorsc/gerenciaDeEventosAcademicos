@@ -23,7 +23,6 @@ public class Model {
             observers.add(observer);
         }
     }
-
     public void detachObserver(Observer observer) {
         if (observer != null) {
             observers.remove(observer);
@@ -34,59 +33,34 @@ public class Model {
             o.update();
         }
     }
-
-    public Usuario autenticarUsuario(String login, String senha) {
+    public Usuario autenticarUsuario(String login, String senha) { // metodo para autenticar o usuario;
         Usuario usuario;
         if (login != null && senha != null) {
             usuario = usuarios.get(login);
             if (usuario != null) {
                 if (login.equals(usuario.getId()) && senha.equals(usuario.getSenha())){
-                    usuarioAutenticado = usuario;
+                    this.usuario = usuario;
                 }
             }
         }
-        return usuarioAutenticado;
+        return this.usuario;
     }
-
-    public void deslogarUsuario() {
-        usuarioAutenticado = null;
+    public void deslogarUsuario() { // metodo para deslogar e voltar a pagina inicial do sistema;
+        usuario = null;
         MainView mainView = new MainView();
         mainView.initMainView(this);
         notifica();
     }
-
-    public void sair(){
-
-    }
-
-    public void voltarPaginaInicial(){
+    public void voltarPaginaInicial() { // metodo para voltaar a pagina inicial do sistema;
         MainView mainView = new MainView();
         mainView.initMainView(this);
     }
-
-    public Usuario getUsuarioAutenticado() {
-        return usuarioAutenticado;
-    }
-
-    public int getTotalUsuarios() {
-        return usuarios.size();
-    }
-
-    public Usuario getUsuarioSistema(String id) {
-        if (id != null) {
-            Usuario usuario = usuarios.get(id);
-            return usuario;
-        }
-        return null;
-    }
-
     public void setUsuarioSistema(Usuario usuario) {
         if (usuario != null && usuario.getId() != null) {
             usuarios.put(usuario.getId(), usuario);
             notifica();
         }
     }
-
     public Usuario getUsuario() {
         return usuario;
     }
@@ -107,15 +81,22 @@ public class Model {
         this.usuarios = usuarios;
     }
 
-    public void setUsuarioAutenticado(Usuario usuarioAutenticado) {
-        this.usuarioAutenticado = usuarioAutenticado;
-    }
 
     public ArrayList<Participante> getParticipantesLista() {
         return participantesLista;
     }
     public ArrayList<Palestrante> getPalestrantesLista() {
         return palestrantesLista;
+    }
+    public void palestrantesCadastrados() {
+        int i = 0;
+        System.out.println();
+        System.out.println("Palestrantes cadastrados:");
+        for (Palestrante palestrante : getPalestrantesLista()) {
+            System.out.println("ID: " + i + " - " + "Nome: " + palestrante.getNome());
+            i++;
+        }
+        System.out.println();
     }
 
     public ArrayList<Organizador> getOrganizadoresLista() {
@@ -124,5 +105,33 @@ public class Model {
 
     public ArrayList<Atividade> getAtividadesCadastrados() {
         return atividadesCadastrados;
+    }
+
+    public Usuario getUsuarioAutenticado() {
+        return usuarioAutenticado;
+    }
+
+    public void setUsuarioAutenticado(Usuario usuarioAutenticado) {
+        this.usuarioAutenticado = usuarioAutenticado;
+    }
+
+    public void setParticipantesLista(ArrayList<Participante> participantesLista) {
+        this.participantesLista = participantesLista;
+    }
+
+    public void setPalestrantesLista(ArrayList<Palestrante> palestrantesLista) {
+        this.palestrantesLista = palestrantesLista;
+    }
+
+    public void setOrganizadoresLista(ArrayList<Organizador> organizadoresLista) {
+        this.organizadoresLista = organizadoresLista;
+    }
+
+    public void setEventosCadastrados(ArrayList<Evento> eventosCadastrados) {
+        this.eventosCadastrados = eventosCadastrados;
+    }
+
+    public void setAtividadesCadastrados(ArrayList<Atividade> atividadesCadastrados) {
+        this.atividadesCadastrados = atividadesCadastrados;
     }
 }

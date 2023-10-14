@@ -6,12 +6,10 @@ import java.io.PrintWriter;
 
 public class Certificado {
     private Atividade atividade;
-
     public Certificado(Atividade atividade) {
         this.atividade = atividade;
     }
-
-    public void emitirCertificado (Participante participante) {
+    public void emitirCertificado (Participante participante) { // metodo para emissao dos certificados dos participantes (nao ativo nessa versao);
         String conteudo = "Certificamos que " + participante.getNome() + " participou da atividade " + atividade.getNome() + " realizada em " + atividade.getDataInicio() + ".";
         String nomeArquivo = participante.getNome() + "-" + atividade.getNome() + ".txt";
         try {
@@ -27,7 +25,6 @@ public class Certificado {
     public Atividade getAtividade() {
         return atividade;
     }
-
     public void setAtividade(Atividade atividade) {
         this.atividade = atividade;
     }

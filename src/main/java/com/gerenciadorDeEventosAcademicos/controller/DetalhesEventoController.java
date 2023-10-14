@@ -30,13 +30,16 @@ public class DetalhesEventoController implements Observer {
                 if (model.getUsuario() instanceof Organizador){
                     Organizador organizador = (Organizador) model.getUsuario();
                     organizador.editarEvento(evento, model);
-                    DetalhesEventoView view1 = new DetalhesEventoView();
-                    view1.initDetalhesEventoView(model, evento);
+                    chamarDetalhesEventoView(model, evento);
                 } else {
                     escolherAtividade();
                 }
             case 2:
                 if (model.getUsuario() instanceof Organizador){
+                    if (model.getAtividadesCadastrados().isEmpty()) {
+                        view.exibirMensagem("Nenhuma atividade cadastrada...");
+                        chamarDetalhesEventoView(model, evento);
+                    }
                     escolherAtividade();
                 } else {
                     model.voltarPaginaInicial();
@@ -46,16 +49,15 @@ public class DetalhesEventoController implements Observer {
                     Organizador organizador = (Organizador) model.getUsuario();
                     Atividade novaAtividade = organizador.criarAtividade();
                     model.getAtividadesCadastrados().add(novaAtividade);
-                    System.out.println("Atividade cadastrada com sucesso!");;
-                    DetalhesEventoView view1 = new DetalhesEventoView();
-                    view1.initDetalhesEventoView(model, evento);
+                    view.exibirMensagem("Atividade cadastrada com sucesso!");
+                    chamarDetalhesEventoView(model, evento);
                 } else {
                     model.deslogarUsuario();
                 }
             case 4:
                 model.getEventosCadastrados().remove(evento);
-                PaginaEventosView view1 = new PaginaEventosView();
-                view1.initPaginaEventosView(model);
+                view.exibirMensagem("Evento excluído com sucesso!");
+                chamarPaginaEventosView(model);
             case 5:
                 model.voltarPaginaInicial();
             case 6:
@@ -64,36 +66,29 @@ public class DetalhesEventoController implements Observer {
         }
     }
 
+    public void chamarPaginaEventosView(Model model){
+        PaginaEventosView view1 = new PaginaEventosView();
+        view1.initPaginaEventosView(model);
+    }
+    public void chamarDetalhesEventoView(Model model, Evento evento){
+        DetalhesEventoView view = new DetalhesEventoView();
+        view.initDetalhesEventoView(model, evento);
+    }
+
     public void escolherAtividade() throws NullPointerException{
         Scanner scanner = new Scanner(System.in);
-        atividadesDisponiveis();
-        System.out.println("Digite o numero correspondente a atividade desejada: ");
+        view.totalAtividadesDisponiveis();
+        view.exibirMensagem("Digite o numero correspondente a atividade desejada: ");
         numeroAtividadeEscolhida = scanner.nextInt();
         try{
             atividadeEscolhida = model.getAtividadesCadastrados().get(numeroAtividadeEscolhida-1);
             AtividadesView view1 = new AtividadesView();
             view1.initAtividadesView(model, atividadeEscolhida);
         } catch (NullPointerException exception){
-            System.out.println("Nenhuma atividade correspondente.");
-            System.out.println("Tente novamente.");
+            view.exibirMensagem("Nenhuma atividade correspondente.\nTente novamente.");
             DetalhesEventoView view1 = new DetalhesEventoView();
             view1.initDetalhesEventoView(model, view.getEventoEscolhido());
         }
-    }
-    public void atividadesDisponiveis() throws NullPointerException{
-        int i = 1;
-        try {
-            System.out.println("Total atividades disponiveis: " + model.getAtividadesCadastrados().size());
-            System.out.println("Lista de atividades:");
-            for (Atividade atividade: model.getAtividadesCadastrados()) {
-                System.out.println(i + " >>> " + atividade.getNome() + " ID: " + atividade.getId());
-                i++;
-                }
-        } catch (NullPointerException exception){
-            System.out.println("Nenhuma atividade cadastrada.....");
-        }
-
-
     }
     @Override
     public void update() {

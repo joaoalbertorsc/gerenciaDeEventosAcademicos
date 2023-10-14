@@ -7,7 +7,7 @@ public class Local {
     private int capacidade;
     private String referencia;
 
-    public Local(String nome, String bloco, int capacidade, String referencia) {
+    public Local(String nome, String bloco, int capacidade, String referencia) { // metodo contrutor do local (nao utilizado nessa versao);
         this.nome = nome;
         this.bloco = bloco;
         this.capacidade = capacidade;

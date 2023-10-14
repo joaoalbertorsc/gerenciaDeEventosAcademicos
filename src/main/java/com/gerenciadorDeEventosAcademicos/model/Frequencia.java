@@ -4,12 +4,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Frequencia {
-
-    private Evento evento;
     private Atividade atividade;
     private ArrayList<Participante> participantesPresentes;
-
-    public void marcarPresenca(Atividade atividade) {
+    public void marcarPresenca(Atividade atividade) { // metodo para marcar a presenca dos participantes da atividade;
         Scanner sc = new Scanner(System.in);
         this.atividade = atividade;
         System.out.println("[1] - Presente" +
@@ -19,21 +16,19 @@ public class Frequencia {
             String resposta = sc.nextLine();
             if (resposta.equalsIgnoreCase("1")){
                 participantesPresentes.add(participante);
-                System.out.println(participante.getNome() + " está presente.");
+                System.out.println(participante.getNome() + " esta presente.");
             } else {
-                System.out.println(participante.getNome() + " está ausente.");
+                System.out.println(participante.getNome() + " esta ausente.");
             }
         }
         sc.close();
     }
-
-    public void verListaPresenca(){
+    public void verListaPresenca(){ // metodo para ver lista de precenca (não ativo nessa versao);
         System.out.println("Lista de presenca:");
         for (Participante participante: participantesPresentes) {
             System.out.println(participante.getNome());
         }
     }
-
     public Atividade getAtividade() {
         return atividade;
     }
