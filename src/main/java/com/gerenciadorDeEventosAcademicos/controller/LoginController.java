@@ -21,10 +21,10 @@ public class LoginController implements Observer {
             case "OK" :
                 Usuario usuario = model.getUsuario();
                 if (usuario == null) {
-                    view.exibirMensagem("ERRO: Usuario e/ou Senha invalidos!");
+                    view.exibirMensagem(LoginView.msgErroUsuarioSenhaInvalido);
                     model.voltarPaginaInicial();
                 } else {
-                    view.exibirMensagem("SUCESSO: Usuario autenticado!");
+                    view.exibirMensagem(LoginView.msgSucessoUsuarioAutenticado);
                     PaginaEventosView pagina = new PaginaEventosView();
                     pagina.initPaginaEventosView(model);
                 }

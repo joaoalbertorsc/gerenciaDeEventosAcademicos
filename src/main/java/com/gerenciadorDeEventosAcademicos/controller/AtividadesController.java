@@ -35,7 +35,7 @@ public class AtividadesController implements Observer{
             case 2:
                 if (model.getUsuario() instanceof Organizador){
                     if (model.getPalestrantesLista().isEmpty()){
-                        view.exibirMensagem("Nenhum palestrante cadastrado...");
+                        view.exibirMensagem(AtividadesView.msgNenhumPalestranteEncontrado);
                         chamarAtividadesView(model, view);
                     } else {
                         Organizador organizador = (Organizador) model.getUsuario();
@@ -82,7 +82,7 @@ public class AtividadesController implements Observer{
     }
     public void removerPalestrante(){
         view.palestrantesAtribuidos();
-        view.exibirMensagem("Digite o ID correspondente ao palestrante que voce deseja remover da atividade:" + view.getAtividadeEscolhida().getNome() + ":");
+        view.exibirMensagem(AtividadesView.msgIdRemoverPalestrante + view.getAtividadeEscolhida().getNome() + AtividadesView.msgDoisPontos);
         Organizador organizador = (Organizador) model.getUsuario();
         int id = scanner.nextInt();
         organizador.removerPalestrante(view.getAtividadeEscolhida(), model.getPalestrantesLista().get(id - 1));

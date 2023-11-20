@@ -37,7 +37,7 @@ public class DetalhesEventoController implements Observer {
             case 2:
                 if (model.getUsuario() instanceof Organizador){
                     if (model.getAtividadesCadastrados().isEmpty()) {
-                        view.exibirMensagem("Nenhuma atividade cadastrada...");
+                        view.exibirMensagem(DetalhesEventoView.msgNenhumaAtividadeCadastrada);
                         chamarDetalhesEventoView(model, evento);
                     }
                     escolherAtividade();
@@ -49,14 +49,14 @@ public class DetalhesEventoController implements Observer {
                     Organizador organizador = (Organizador) model.getUsuario();
                     Atividade novaAtividade = organizador.criarAtividade();
                     model.getAtividadesCadastrados().add(novaAtividade);
-                    view.exibirMensagem("Atividade cadastrada com sucesso!");
+                    view.exibirMensagem(DetalhesEventoView.msgAtividadeEncontradaSucesso);
                     chamarDetalhesEventoView(model, evento);
                 } else {
                     model.deslogarUsuario();
                 }
             case 4:
                 model.getEventosCadastrados().remove(evento);
-                view.exibirMensagem("Evento excluído com sucesso!");
+                view.exibirMensagem(DetalhesEventoView.msgEventoExcluidoSucesso);
                 chamarPaginaEventosView(model);
             case 5:
                 model.voltarPaginaInicial();
@@ -78,14 +78,14 @@ public class DetalhesEventoController implements Observer {
     public void escolherAtividade() throws NullPointerException{
         Scanner scanner = new Scanner(System.in);
         view.totalAtividadesDisponiveis();
-        view.exibirMensagem("Digite o numero correspondente a atividade desejada: ");
+        view.exibirMensagem(DetalhesEventoView.msgDigiteNumeroCorrespondente);
         numeroAtividadeEscolhida = scanner.nextInt();
         try{
             atividadeEscolhida = model.getAtividadesCadastrados().get(numeroAtividadeEscolhida-1);
             AtividadesView view1 = new AtividadesView();
             view1.initAtividadesView(model, atividadeEscolhida);
         } catch (NullPointerException exception){
-            view.exibirMensagem("Nenhuma atividade correspondente.\nTente novamente.");
+            view.exibirMensagem(DetalhesEventoView.msgNenhumaAtividadeCorrespondente);
             DetalhesEventoView view1 = new DetalhesEventoView();
             view1.initDetalhesEventoView(model, view.getEventoEscolhido());
         }

@@ -65,6 +65,12 @@ public class DetalhesEventoView implements Observer{
         controller.handleEvent(escolhaUsuario, eventoEscolhido);
         model.detachObserver(this);
     }
+    public static String msgNenhumaAtividadeCadastrada = "Nenhuma atividade cadastrada...";
+    public static String msgAtividadeEncontradaSucesso = "Atividade cadastrada com sucesso!";
+    public static String msgEventoExcluidoSucesso = "Evento excluído com sucesso!";
+    public static String msgDigiteNumeroCorrespondente = "Digite o numero correspondente a atividade desejada: ";
+    public static String msgNenhumaAtividadeCorrespondente = "Nenhuma atividade correspondente.\nTente novamente.";
+
     public void exibirMensagem(String mensagem) {
         System.out.println();
         System.out.println(mensagem);

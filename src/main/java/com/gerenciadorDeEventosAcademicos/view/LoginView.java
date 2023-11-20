@@ -33,6 +33,8 @@ public class LoginView implements Observer{
         controller.handleEvent("OK");
         model.detachObserver(this);
     }
+    public static String msgErroUsuarioSenhaInvalido = "ERRO: Usuario e/ou Senha invalidos!";
+    public static String msgSucessoUsuarioAutenticado = "SUCESSO: Usuario autenticado!";
     public void exibirMensagem(String mensagem) { // Exibir menagem de erro ou sucesso dependendo do resultado do login
         System.out.println();
         System.out.println(mensagem);

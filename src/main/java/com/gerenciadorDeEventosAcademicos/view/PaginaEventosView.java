@@ -43,6 +43,13 @@ public class PaginaEventosView implements Observer{
         numeroEventoEscolhido = scanner.nextInt();
         model.detachObserver(this);
     }
+    public static String msgNenhumEventoCadastrado = "Nenhum evento cadastrado...";
+    public static String msgNumeroEventoCadastrado = "Digite o numero do evento desejado: ";
+    public static String msgIdInvalido = "ID invalido.\nConfira o numero e tente novamente.";
+    public static String totalEventosDisponiveis(Model model){
+        return "Total eventos disponiveis: " + model.getEventosCadastrados().size();
+    }
+    public static String msgListaEventos = "Lista de eventos:";
     public void exibirMensagem(String mensagem){
         System.out.println();
         System.out.println(mensagem);

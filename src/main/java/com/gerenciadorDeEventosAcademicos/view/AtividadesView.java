@@ -69,6 +69,9 @@ public class AtividadesView implements Observer{
         model.detachObserver(this);
 
     }
+    public static String msgDoisPontos = ":";
+    public static String msgIdRemoverPalestrante = "Digite o ID correspondente ao palestrante que voce deseja remover da atividade:";
+    public static String msgNenhumPalestranteEncontrado = "Nenhum palestrante cadastrado...";
     public void exibirMensagem(String mensagem){
         System.out.println();
         System.out.println(mensagem);

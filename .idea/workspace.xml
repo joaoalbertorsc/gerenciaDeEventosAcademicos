@@ -4,7 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e841b94-0b94-46ab-8e0f-834a2b1cbed8" name="Changes" comment="In progress &gt;&gt;&gt;" />
+    <list default="true" id="5e841b94-0b94-46ab-8e0f-834a2b1cbed8" name="Changes" comment="In progress &gt;&gt;&gt;">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_12_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/controller/AtividadesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/controller/AtividadesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/controller/DetalhesEventoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/controller/DetalhesEventoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/controller/PaginaEventosController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/controller/PaginaEventosController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/view/AtividadesView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/view/AtividadesView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/view/DetalhesEventoView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/view/DetalhesEventoView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/view/LoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/view/LoginView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/view/PaginaEventosView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/view/PaginaEventosView.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,16 +41,30 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="IlluminatedCloudWorkspaceSettings">
+    <option name="projectWorkspaceSettings">
+      <ProjectWorkspaceSettings>
+        <option name="soqlQuerySettings">
+          <SoqlQuerySettings>
+            <option name="savedDocuments">
+              <list>
+                <SoqlQuerySavedDocument>
+                  <option name="name" value="SOQL Query 1" />
+                </SoqlQuerySavedDocument>
+              </list>
+            </option>
+            <option name="selectedSavedDocumentIndex" value="0" />
+          </SoqlQuerySettings>
+        </option>
+      </ProjectWorkspaceSettings>
+    </option>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="useMavenConfig" value="true" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2RUQ610jNJg4oKVFnEt9XlRr7lq" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -45,18 +73,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/jaoal/OneDrive/Área de Trabalho/Study/Facul/Materias/POO/exemplo-cod-mvc-poo/poo&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propCompiler&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/jaoal/OneDrive/Área de Trabalho/Main Jobert/Coding/Java - POO/gerenciamento-eventos-academicos",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.Console Font"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.gerenciadorDeEventosAcademicos.controller" />
@@ -215,7 +244,14 @@
       <option name="project" value="LOCAL" />
       <updated>1691198170011</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="In progress &gt;&gt;&gt;">
+      <created>1691198394020</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1691198394020</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -261,5 +297,9 @@
         <PinnedItemInfo parentTag="com.gerenciadorDeEventosAcademicos.model.Model" memberName="eventosCadastrados" />
       </pinned-members>
     </pin-to-top-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
