@@ -46,7 +46,7 @@ public class Evento {
         if (id >= 0 && id <= 999999){ // verificacao do dado de entrada do usuario;
             this.id = id;
         } else {
-            System.out.println("O id informado não esta entre o intervalo de 0 a 999999 \n Tente novamente");
+            System.out.println("O id informado nao esta entre o intervalo de 0 a 999999 \n Tente novamente");
         }
     }
     public void setDataFim(String dataFim) {
