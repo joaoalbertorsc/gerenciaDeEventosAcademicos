@@ -4,17 +4,17 @@ package com.gerenciadorDeEventosAcademicos.model;
 import java.util.ArrayList;
 
 public class Participante extends Usuario {
+    private Mediator mediator = new Mediator();
     private Atividade atividade;
     private ArrayList<Atividade> atividadesInscritas = new ArrayList<Atividade>();
-    public void inscreverseAtividade(Atividade atividade){ // metodo para o participante se inscrever na atividade
+    public void inscreverseEmAtividade(Object object, Atividade atividade){ // metodo para o participante se inscrever na atividade
         this.atividade = atividade;
-        this.atividade.addParticipante(this);
+        mediator.inscreverseAtividade(object, atividade);
     }
-    public void cancelarInscricaoAtividade(Atividade atividade){ // metodo para o participante cancelar inscricao de uma atividade
+    public void cancelarInscricaoAtividade(Object object, Atividade atividade){ // metodo para o participante cancelar inscricao de uma atividade
         this.atividade = atividade;
-        this.atividade.getParticipantesDaAtividade().remove(this);
+        mediator.cancelarInscricaoAtividade(object, atividade);
     }
-
     public ArrayList<Atividade> getAtividadesInscritas() {
         return atividadesInscritas;
     }

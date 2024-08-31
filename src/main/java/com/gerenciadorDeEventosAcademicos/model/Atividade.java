@@ -1,7 +1,5 @@
 package com.gerenciadorDeEventosAcademicos.model;
 
-import com.gerenciadorDeEventosAcademicos.mediator.Mediator;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -137,5 +135,23 @@ public class Atividade {
     }
     public void setEvento(Evento evento) {
         this.evento = evento;
+    }
+
+    public void removerParticipante(Object object, Atividade atividade) {
+        if (object instanceof Participante){
+            for (Participante participante : atividade.getParticipantesDaAtividade()){
+                if (participante == object){
+                    atividade.getParticipantesDaAtividade().remove(object);
+                    atividade.setParticipantesDaAtividade(atividade.getParticipantesDaAtividade());
+                }
+            }
+        } else {
+            for (Palestrante palestrante : atividade.getPalestrantesDaAtividade()) {
+                if (palestrante == object) {
+                    atividade.getPalestrantesDaAtividade().remove(object);
+                    atividade.setPalestrantesDaAtividade(atividade.getPalestrantesDaAtividade());
+                }
+            }
+        }
     }
 }

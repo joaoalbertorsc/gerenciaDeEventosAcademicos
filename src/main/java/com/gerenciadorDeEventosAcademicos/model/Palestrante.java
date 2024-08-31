@@ -5,23 +5,20 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Palestrante extends Participante {
-
     private ArrayList<Atividade> atividades = new ArrayList<Atividade>();
     private Atividade atividade;
     Scanner scanner = new Scanner(System.in);
-
     @Override
     public String toString() {
         return "{" + super.toString() +
                 ", atividades: " + atividades +
                 '}';
     }
-
-    public void inscreverseAtividade(Atividade atividade){ // herdando metodo do participante, de se inscrever;
-        super.inscreverseAtividade(atividade);
+    public void inscreverseEmAtividade(Object object, Atividade atividade){ // herdando metodo do participante, de se inscrever;
+        super.inscreverseEmAtividade(object, atividade);
     }
-    public void cancelarInscricaoAtividade(Atividade atividade){ // herdando metodo do participante, de cancelar inscricao de uma atividade;
-        super.cancelarInscricaoAtividade(atividade);
+    public void cancelarInscricaoAtividade(Object object, Atividade atividade){ // herdando metodo do participante, de cancelar inscricao de uma atividade;
+        super.cancelarInscricaoAtividade(object, atividade);
     }
     public void editarAtividade(Model model, Atividade atividade){ // metodo para o palestrante editar uma atividade;
         this.atividade = atividade;
@@ -40,7 +37,6 @@ public class Palestrante extends Participante {
         handleEvent(i, model, atividade);
         scanner.close();
     }
-
     public void handleEvent(int i, Model model, Atividade atividade){ // metodo para dependendo da escolha do usuario fazer determinada funcao;
         switch (i){
             case 1:
@@ -79,19 +75,10 @@ public class Palestrante extends Participante {
                 editarAtividade(model, atividade);
         }
     }
-    public ArrayList<Atividade> getAtividades() {
-        return atividades;
-    }
-
-    public void setAtividades(ArrayList<Atividade> atividades) {
-        this.atividades = atividades;
-    }
-
     @Override
     public Atividade getAtividade() {
         return atividade;
     }
-
     @Override
     public void setAtividade(Atividade atividade) {
         this.atividade = atividade;
