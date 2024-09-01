@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Palestrante extends Participante {
+    private Mediator mediator = new Mediator();
     private ArrayList<Atividade> atividades = new ArrayList<Atividade>();
     private Atividade atividade;
     Scanner scanner = new Scanner(System.in);
@@ -20,22 +21,9 @@ public class Palestrante extends Participante {
     public void cancelarInscricaoAtividade(Object object, Atividade atividade){ // herdando metodo do participante, de cancelar inscricao de uma atividade;
         super.cancelarInscricaoAtividade(object, atividade);
     }
-    public void editarAtividade(Model model, Atividade atividade){ // metodo para o palestrante editar uma atividade;
-        this.atividade = atividade;
-        System.out.println("Qual atributo da atividade voce deseja editar?");
-        System.out.println("----------------------------------------------");
-        System.out.println("[1] - Nome:");
-        System.out.println("[2] - Descrição:");
-        System.out.println("[3] - Data de inicio:");
-        System.out.println("[4] - Data de fim:");
-        System.out.println("[5] - Hora de inicio:");
-        System.out.println("[6] - Hora de fim:");
-        System.out.println("----------------------------------------------");
-        System.out.println("Escolha uma opcao:");
-        int i = scanner.nextInt();
-        scanner.nextLine();
-        handleEvent(i, model, atividade);
-        scanner.close();
+
+    public void editarAtividade(Model model, Atividade atividade){
+        mediator.editarAtividade(model, atividade);
     }
     public void handleEvent(int i, Model model, Atividade atividade){ // metodo para dependendo da escolha do usuario fazer determinada funcao;
         switch (i){
@@ -82,5 +70,18 @@ public class Palestrante extends Participante {
     @Override
     public void setAtividade(Atividade atividade) {
         this.atividade = atividade;
+    }
+
+    public void menuEdicaoAtividade() {
+        System.out.println("Qual atributo da atividade voce deseja editar?");
+        System.out.println("----------------------------------------------");
+        System.out.println("[1] - Nome:");
+        System.out.println("[2] - Descrição:");
+        System.out.println("[3] - Data de inicio:");
+        System.out.println("[4] - Data de fim:");
+        System.out.println("[5] - Hora de inicio:");
+        System.out.println("[6] - Hora de fim:");
+        System.out.println("----------------------------------------------");
+        System.out.println("Escolha uma opcao:");
     }
 }

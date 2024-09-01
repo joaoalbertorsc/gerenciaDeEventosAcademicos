@@ -1,10 +1,16 @@
 package com.gerenciadorDeEventosAcademicos.model;
 
+import java.util.Scanner;
+
 public class Mediator {
     private Atividade atividade;
     private Model model;
+    private Organizador organizador;
     private Palestrante palestrante;
     private Participante participante;
+    private Scanner scanner = new Scanner(System.in);
+
+
     public Mediator() {
     }
 
@@ -40,6 +46,26 @@ public class Mediator {
         setAtividade(atividade);
         if (object != null){
             atividade.removerParticipante(object, atividade);
+        }
+    }
+
+    public void editarAtividade(Model model, Atividade atividade) {
+        this.atividade = atividade;
+        this.model = model;
+        if (model.getUsuario() instanceof Palestrante){
+            this.palestrante = (Palestrante) model.getUsuario();
+            palestrante.menuEdicaoAtividade();
+            int i = Integer.parseInt(scanner.nextLine());
+            scanner.nextLine();
+            palestrante.handleEvent(i, model, atividade);
+            scanner.close();
+        } else {
+            this.organizador = (Organizador) model.getUsuario();
+            organizador.menuEdicaoAtividade();
+            int i = Integer.parseInt(scanner.nextLine());
+            scanner.nextLine();
+            organizador.handleEvent(i, model, atividade);
+            scanner.close();
         }
     }
 }

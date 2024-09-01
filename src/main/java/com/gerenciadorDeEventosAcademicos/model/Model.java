@@ -10,7 +10,6 @@ public class Model {
 
     private Usuario usuario;
     private HashMap<String,Usuario> usuarios = new HashMap<String, Usuario>();
-    private Usuario usuarioAutenticado;
     private ArrayList<Participante> participantesLista = new ArrayList<Participante>();
     private ArrayList<Palestrante> palestrantesLista = new ArrayList<Palestrante>();
     private ArrayList<Organizador> organizadoresLista = new ArrayList<Organizador>();
@@ -105,14 +104,6 @@ public class Model {
 
     public ArrayList<Atividade> getAtividadesCadastrados() {
         return atividadesCadastrados;
-    }
-
-    public Usuario getUsuarioAutenticado() {
-        return usuarioAutenticado;
-    }
-
-    public void setUsuarioAutenticado(Usuario usuarioAutenticado) {
-        this.usuarioAutenticado = usuarioAutenticado;
     }
 
     public void setParticipantesLista(ArrayList<Participante> participantesLista) {

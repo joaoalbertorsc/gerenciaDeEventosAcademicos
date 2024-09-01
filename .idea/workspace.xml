@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e841b94-0b94-46ab-8e0f-834a2b1cbed8" name="Changes" comment="commit observer">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/model/Mediator.java" afterDir="false" />
+    <list default="true" id="5e841b94-0b94-46ab-8e0f-834a2b1cbed8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/controller/AtividadesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/controller/AtividadesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/model/Atividade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/model/Atividade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/model/Mediator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/model/Mediator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/model/Model.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/model/Palestrante.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/model/Palestrante.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/model/Participante.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/model/Participante.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -300,7 +299,23 @@
       <option name="project" value="LOCAL" />
       <updated>1725111584968</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="config">
+      <option name="closed" value="true" />
+      <created>1725127782578</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1725127782578</updated>
+    </task>
+    <task id="LOCAL-00025" summary="adding Mediator">
+      <option name="closed" value="true" />
+      <created>1725127803841</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1725127803841</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -347,7 +362,9 @@
     <MESSAGE value="commit view" />
     <MESSAGE value="commit readme" />
     <MESSAGE value="commit observer" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit observer" />
+    <MESSAGE value="config" />
+    <MESSAGE value="adding Mediator" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding Mediator" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

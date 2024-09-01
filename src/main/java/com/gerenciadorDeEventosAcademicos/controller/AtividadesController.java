@@ -27,7 +27,7 @@ public class AtividadesController implements Observer{
                     palestrante.editarAtividade(model, view.getAtividadeEscolhida());
                 } else {
                     if (view.getAtividadeEscolhida().getParticipantesDaAtividade().contains((Participante) model.getUsuario())){
-                        ((Participante) model.getUsuario()).cancelarInscricaoAtividade((Participante) model.getUsuario(), view.getAtividadeEscolhida());
+                        ((Participante) model.getUsuario()).cancelarInscricaoAtividade(model.getUsuario(), view.getAtividadeEscolhida());
                     } else {
                         ((Participante) model.getUsuario()).inscreverseEmAtividade(model.getUsuario(), view.getAtividadeEscolhida());
                     }
