@@ -4,12 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e841b94-0b94-46ab-8e0f-834a2b1cbed8" name="Changes" comment="">
+    <list default="true" id="5e841b94-0b94-46ab-8e0f-834a2b1cbed8" name="Changes" comment="update mediator">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/controller/AtividadesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/controller/AtividadesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/controller/DetalhesEventoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/controller/DetalhesEventoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/model/Atividade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/model/Atividade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/model/Evento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/model/Evento.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/model/Mediator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/model/Mediator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/model/Model.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/model/Organizador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/model/Organizador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/model/Palestrante.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/model/Palestrante.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/model/Participante.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gerenciadorDeEventosAcademicos/model/Participante.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -315,12 +318,30 @@
       <option name="project" value="LOCAL" />
       <updated>1725127803841</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="update mediator">
+      <option name="closed" value="true" />
+      <created>1725153527150</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1725153527150</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="83402fcc-bb9e-4bbe-ba8f-68678d700a8a" value="TOOL_WINDOW" />
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
+        <entry key="83402fcc-bb9e-4bbe-ba8f-68678d700a8a">
+          <value>
+            <State />
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State>
@@ -364,7 +385,8 @@
     <MESSAGE value="commit observer" />
     <MESSAGE value="config" />
     <MESSAGE value="adding Mediator" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding Mediator" />
+    <MESSAGE value="update mediator" />
+    <option name="LAST_COMMIT_MESSAGE" value="update mediator" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
