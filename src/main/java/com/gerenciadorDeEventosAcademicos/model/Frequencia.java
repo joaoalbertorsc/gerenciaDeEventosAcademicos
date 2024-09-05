@@ -6,15 +6,16 @@ import java.util.Scanner;
 public class Frequencia {
     private Atividade atividade;
     private ArrayList<Participante> participantesPresentes;
+
     public void marcarPresenca(Atividade atividade) { // metodo para marcar a presenca dos participantes da atividade;
         Scanner sc = new Scanner(System.in);
         this.atividade = atividade;
         System.out.println("[1] - Presente" +
                 "[2] - Ausente");
-        for (Participante participante: atividade.getParticipantesDaAtividade()) {
+        for (Participante participante : atividade.getParticipantesDaAtividade()) {
             System.out.println("Participante " + participante.getNome() + "esta presente?\n");
             String resposta = sc.nextLine();
-            if (resposta.equalsIgnoreCase("1")){
+            if (resposta.equalsIgnoreCase("1")) {
                 participantesPresentes.add(participante);
                 System.out.println(participante.getNome() + " esta presente.");
             } else {
@@ -23,12 +24,14 @@ public class Frequencia {
         }
         sc.close();
     }
-    public void verListaPresenca(){ // metodo para ver lista de precenca (não ativo nessa versao);
+
+    public void verListaPresenca() { // metodo para ver lista de precenca (não ativo nessa versao);
         System.out.println("Lista de presenca:");
-        for (Participante participante: participantesPresentes) {
+        for (Participante participante : participantesPresentes) {
             System.out.println(participante.getNome());
         }
     }
+
     public Atividade getAtividade() {
         return atividade;
     }

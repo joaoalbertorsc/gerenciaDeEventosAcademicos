@@ -15,8 +15,8 @@ public class Evento {
     private ArrayList<Atividade> atividadesDoEvento = new ArrayList<Atividade>();
     private ArrayList<Participante> participantesDoEvento = new ArrayList<Participante>();
     private ArrayList<Palestrante> palestrantesDoEvento = new ArrayList<Palestrante>();
-    Scanner scanner = new Scanner(System.in);
-    public String toString(){
+
+    public String toString() {
         return "\nEvento: " + nome +
                 "\nDescricao: " + descricao +
                 "\n" + endereco +
@@ -26,6 +26,7 @@ public class Evento {
                 "\nData de finalizacao: " + dataFim +
                 "\n*********************************";
     }
+
     public void criarEndereco() { // metodo para criar endereco quando a criacao de um evento eh chamada;
         Scanner sc = new Scanner(System.in);
         String rua, numero, cidade, referencia;
@@ -40,43 +41,66 @@ public class Evento {
         referencia = sc.nextLine();
         System.out.println("---------------------------------------------------------");
         endereco = new Endereco(rua, numero, cidade, referencia);
-        this.endereco = endereco;
+        setEndereco(endereco);
     }
-    public void setId(int id){
-        if (id >= 0 && id <= 999999){ // verificacao do dado de entrada do usuario;
+
+    public String definirDataInicio(String dataInicio) {
+        Scanner scanner = new Scanner(System.in);
+        while (!dataInicio.matches("\\d{1,2}/\\d{1,2}/\\d{4}")) {
+            System.out.println("O formato da data de inicio informada esta incorreto." +
+                    "\nTente novamente passando a data no formato xx/xx/xxxx" +
+                    "\n\nEscreva novamente a data de inicio:");
+            dataInicio = scanner.nextLine();
+        }
+        return dataInicio;
+    }
+
+    public String definirDataEncerramento(String dataEncerramento) {
+        Scanner scanner = new Scanner(System.in);
+        while (!dataEncerramento.matches("\\d{1,2}/\\d{1,2}/\\d{4}")) {
+            System.out.println("O formato da data de encerramento informada esta incorreto." +
+                    "\nTente novamente passando a data no formato xx/xx/xxxx" +
+                    "\n\nEscreva novamente a data de encerramento:");
+            dataEncerramento = scanner.nextLine();
+        }
+        return dataEncerramento;
+    }
+
+    public String definirHorarioInicio(String horaInicio) {
+        Scanner scanner = new Scanner(System.in);
+        while (!horaInicio.matches("\\d{1,2}:\\d{2}")) {
+            System.out.println("O formato da hora de inicio informada esta incoreto." +
+                    "\nTente novamente passando a hora no formato xx:xx" +
+                    "\n\nEscreva o horario de inicio do evento novamente:");
+            horaInicio = scanner.nextLine();
+        }
+        return horaInicio;
+    }
+
+    public void setId(int id) {
+        if (id >= 0 && id <= 999999) { // verificacao do dado de entrada do usuario;
             this.id = id;
         } else {
             System.out.println("O id informado não esta entre o intervalo de 0 a 999999 \n Tente novamente");
         }
     }
+
     public void setDataFim(String dataFim) {
-        if (dataFim.matches("\\d{1,2}/\\d{1,2}/\\d{4}")) {
-            this.dataFim = dataFim;
-        } else {
-            System.out.println("O formato da data do fim informada esta incoreto.\nTente novamente passando a data no formato xx/xx/xxxx");
-            this.setDataFim(scanner.nextLine());
-        }
+        this.dataFim = dataFim;
     }
+
     public void setDataInicio(String dataInicio) {
-        if (dataInicio.matches("\\d{1,2}/\\d{1,2}/\\d{4}")) {
-            this.dataInicio = dataInicio;
-        } else {
-            System.out.println("O formato da data de inicio informada esta incoreto.\nTente novamente passando a data no formato xx/xx/xxxx");
-            this.setDataInicio(scanner.nextLine());
-        }
+        this.dataInicio = dataInicio;
     }
+
     public void setHoraInicio(String horaInicio) {
-        if (horaInicio.matches("\\d{1,2}:\\d{2}")) {
-            this.horaInicio = horaInicio;
-        }
-        else {
-            System.out.println("O formato da hora de inicio informada esta incoreto.\nTente novamente passando a hora no formato xx:xx");
-            this.setHoraInicio(scanner.nextLine());
-        }
+        this.horaInicio = horaInicio;
     }
+
     public int getId() {
         return id;
     }
+
     public String getNome() {
         return nome;
     }
@@ -84,51 +108,67 @@ public class Evento {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
     public String getDescricao() {
         return descricao;
     }
+
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
+
     public Endereco getEndereco() {
         return endereco;
     }
+
     public Organizador getOrganizador() {
         return organizador;
     }
+
     public void setOrganizador(Organizador organizador) {
         this.organizador = organizador;
     }
+
     public String getDataInicio() {
         return dataInicio;
     }
+
     public String getDataFim() {
         return dataFim;
     }
+
     public String getHoraInicio() {
         return horaInicio;
     }
+
     public ArrayList<Atividade> getAtividadesDoEvento() {
         return atividadesDoEvento;
     }
+
     public void setAtividadesDoEvento(ArrayList<Atividade> atividadesDoEvento) {
         this.atividadesDoEvento = atividadesDoEvento;
     }
+
     public ArrayList<Participante> getParticipantesDoEvento() {
         return participantesDoEvento;
     }
+
     public void setParticipantesDoEvento(ArrayList<Participante> participantesDoEvento) {
         this.participantesDoEvento = participantesDoEvento;
     }
+
     public ArrayList<Palestrante> getPalestrantesDoEvento() {
         return palestrantesDoEvento;
     }
+
     public void setPalestrantesDoEvento(ArrayList<Palestrante> palestrantesDoEvento) {
         this.palestrantesDoEvento = palestrantesDoEvento;
     }
+
     public void addAtividade(Atividade atividade) {
         atividadesDoEvento.add(atividade);
     }
+
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
