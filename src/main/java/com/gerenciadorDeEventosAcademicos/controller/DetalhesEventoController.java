@@ -29,7 +29,7 @@ public class DetalhesEventoController implements Observer {
             case 1:
                 if (model.getUsuario() instanceof Organizador){
                     Organizador organizador = (Organizador) model.getUsuario();
-                    organizador.editarEvento(evento, model);
+                    organizador.editarEvento(model, evento);
                     chamarDetalhesEventoView(model, evento);
                 } else {
                     escolherAtividade();
@@ -47,7 +47,7 @@ public class DetalhesEventoController implements Observer {
             case 3:
                 if (model.getUsuario() instanceof Organizador) {
                     Organizador organizador = (Organizador) model.getUsuario();
-                    Atividade novaAtividade = organizador.criarAtividade();
+                    Atividade novaAtividade = organizador.criarAtividade(model, evento);
                     model.getAtividadesCadastrados().add(novaAtividade);
                     view.exibirMensagem(DetalhesEventoView.msgAtividadeEncontradaSucesso);
                     chamarDetalhesEventoView(model, evento);
