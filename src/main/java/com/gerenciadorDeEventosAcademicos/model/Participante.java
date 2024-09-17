@@ -3,7 +3,10 @@ package com.gerenciadorDeEventosAcademicos.model;
 import java.util.ArrayList;
 
 public class Participante extends Usuario {
-    private Mediator mediator = new Mediator();
+    protected final Mediator mediator;
+    public Participante() {
+        this.mediator = new Mediator();
+    }
     private ArrayList<Atividade> atividadesInscritas = new ArrayList<Atividade>();
 
     public void inscreverseEmAtividade(Object object, Atividade atividade) { // metodo para o participante se inscrever na atividade

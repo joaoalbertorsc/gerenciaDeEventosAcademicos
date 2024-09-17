@@ -1,7 +1,9 @@
 package com.gerenciadorDeEventosAcademicos.model;
 
 public class Organizador extends Palestrante {
-    private Mediator mediator = new Mediator();
+    public Organizador() {
+        super();
+    }
 
     public String toString() {
         return "Organizador: " + getNome() +

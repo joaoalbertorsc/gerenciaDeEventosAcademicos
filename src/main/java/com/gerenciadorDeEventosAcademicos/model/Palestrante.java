@@ -1,7 +1,9 @@
 package com.gerenciadorDeEventosAcademicos.model;
 
 public class Palestrante extends Participante {
-    private Mediator mediator = new Mediator();
+    public Palestrante() {
+        super();
+    }
 
     @Override
     public String toString() {
